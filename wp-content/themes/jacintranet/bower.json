@@ -7,8 +7,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "modernizr": "2.8.2",
-    "bootstrap-sass-official": "3.3.5"
+    "modernizr": "2.8.2"
   },
   "overrides": {
     "modernizr": {

@@ -1,0 +1,72 @@
+body
+{
+    font-size:10pt; 
+    font-family:Arial, verdana, Helvetica, sans-serif;
+    color:#000;
+}
+#topnav, #footer, #PageLeft, #Pageright, .LeftNav, #Accesslinks, #banner img, .PanelsRight, .GenericRight, .GenericRight img, #breadcrumbs
+{
+    display:none;
+}
+
+h1
+{
+    font-size:1.6em;
+    color:#5A075C;
+    margin:0 0 14px 0;
+    padding:0 0 12px 0;
+    border-bottom:1px solid #ccc;
+    
+}
+h2
+{
+    font-size:1.3em; 
+    padding:0;
+    margin:10px 0 5px 0;
+    color:#5A075C;
+}
+h3
+{
+    margin:0;
+    padding:0;
+    color:#5A075C;
+}
+h3, h4, h5, h6
+{
+    font-size:1em;
+    color:#5A075C;
+}
+p 
+{
+    margin:0 0 8px 0;
+}
+a
+{
+    text-decoration:none; color:#5A075C;
+}
+#banner
+{
+    margin-bottom:10px;
+    width:950px;
+}
+table 
+{
+    font-size:100%;/* Needed for IE5.x */
+    border:0px;
+    border-style:none;
+    border-collapse:collapse;
+    border-spacing:0px; /* Netscape 6 */
+}
+th, td 
+{
+    vertical-align:top;
+    padding:0;
+    padding-bottom:0.5em;
+    margin:0;
+}
+th 
+{
+    text-align:left;
+    font-weight:bold;
+    font-size:1.1em;
+}

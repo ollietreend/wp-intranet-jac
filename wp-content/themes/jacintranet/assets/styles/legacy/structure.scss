@@ -1,0 +1,574 @@
+/*Website structural site layout*/
+body
+{
+    text-align:center;
+}
+/*Outerwrapper/Innerwrapper*/
+#outerwrapper{
+    width:950px;
+    margin:auto;
+    /*\*/height:600px;/**/
+    background-color:#fff;
+}
+/*\*/html>body #outerwrapper    {height:auto; min-height:600px; overflow:hidden;}/**/
+#innerwrapper
+{
+    text-align:left;
+}
+/*Banner*/
+#banner
+{
+    height:113px;
+    width:950px;
+    margin: 0;
+    padding:0;
+    border-bottom:1px solid #8FCAD8;
+    background:url(static/images/images-structure/BannerBG.gif) no-repeat bottom right;
+}
+html>body #banner            {height:auto; min-height:113px; overflow:hidden}
+#banner p
+{
+    margin:0; padding:0;
+}
+/*Top Nav*/
+#topnav
+{
+    background-color:#333;
+    width:950px;
+    margin:0;
+    text-align:right;
+    height:24px;
+    color:#FFFFFF;
+    font-size:0.9em;
+
+
+}
+
+html>body #topnav            {height:auto; min-height:24px; overflow:hidden;}
+/*Search box*/
+.search
+{
+    float:right;
+    margin:0;
+    padding:0;
+
+}
+
+
+/*Page Wrappers - includes content/left/right panels*/
+/*General site wrappers*/
+/*To achieve two column and full width layouts*/
+#PageWrapper                 {width:950px; float:left; /*margin-top:30px;*/ height:400px;  }
+html>body #PageWrapper        {height:auto; min-height:400px; overflow:hidden;}
+#PageWrapper:after {
+ /* this is for NN6 to clear floats */
+    content: ".";
+    display: block;
+    height: 0px;
+    clear: both;
+    visibility: hidden;
+}
+#PageContent                     {width:710px; float:right;}
+#PageLeft                         {width:230px; margin:0; height:600px;}
+/*\*/html>body #PageLeft        {height:auto; min-height:600px; overflow:hidden;}/**/
+/*Footer*/
+#footer
+{
+    background-color:#666;
+    height:40px;
+    font-size:0.9em;
+    clear:both;
+    width:950px;
+    margin:10px 0 0 0;
+    color:#fff;
+}
+
+html>body #footer                {height:auto; min-height:40px; overflow:hidden;}
+
+/*Top Nav Styles*/
+#topnav ul
+{
+    margin:3px 0 3px 0; padding:0; list-style-type:none;
+}
+#topnav ul li
+{
+    margin:0; padding:0 6px 0 6px; display:inline; background:url(static/images/images-structure/pipeList.gif) no-repeat 0% 50%;
+}
+#topnav ul li a
+{
+    margin:0 0 0 5px; padding:0; color:#fff !important;
+}
+#topnav ul li.noBorder
+{
+    background:none; margin-left:0; padding-left:0;
+}
+
+#topnav ul li form
+{
+    display:inline
+}
+
+
+#topnav ul li label
+{
+    margin:0; padding:0;
+}
+#topnav ul li input
+{
+    width:126px;
+    margin:0 0 0 8px;
+    padding:0;
+    border:1px solid #999;
+    font-size:0.9em;
+    color:#5C5C5C;
+
+}
+#topnav ul li input.SearchBtn
+{
+    width:14px;
+    background:url(static/images/images-structure/search_submit.gif) no-repeat center;
+    margin:0;
+    padding:0;
+    border:0;
+
+
+}
+/*Footer Navigation Styles*/
+#footer ul
+{
+    margin:13px 0 0 35px; padding:0; list-style-type:none;
+}
+#footer ul li
+{
+    margin:0;
+    padding:0 6px 0 6px;
+    float:left;
+    background:url(static/images/images-structure/pipeList.gif) no-repeat 0% 50%;
+    word-wrap: break-word;
+}
+#footer ul li a
+{
+    margin:0 0 0 5px; padding:0; color:#fff !important;
+}
+#footer ul li.noBorder
+{
+    background:none; margin-left:0; padding-left:0;
+}
+
+/* Left Navigation Styles*/
+.LeftNav
+{
+    margin:0;
+    padding:0;
+    float:left;
+    color:#000;
+
+}
+.LeftNav h2
+{
+    position:absolute; top:-999px;
+}
+
+/*Left Navigation Level One*/
+.LeftNav ul
+{
+    margin:0 0 25px 20px; padding:0; list-style-type:none; width:188px;  float:left;
+
+}
+*html .LeftNav ul{float:none;}
+.LeftNav ul li
+{
+    margin:0 0 2px 0;
+    padding:0;
+    float:left;
+    width:100%;
+}
+.LeftNav ul li a
+{
+    color:#000 !important;
+    font-weight:bold;
+    display:block;
+    padding:4px 0 0 24px;
+
+
+
+}
+.LeftNav ul li a:hover, .LeftNav ul li a.active
+{
+
+    color:#fff !important;
+    text-decoration:none;
+
+
+}
+.LeftNav ul li a span.leftnavArrow
+{
+
+    display:block;
+    padding:0 0 5px 0;
+    padding-right:20px;
+}
+.LeftNav ul li a:hover span.leftnavArrow
+{
+    background:none;
+
+}
+/*Left Navigation Level Two*/
+.LeftNav ul li ul
+{
+    width:187px;
+    margin:0;
+    padding:0;
+    float:left;
+
+}
+.LeftNav ul li ul li
+{
+    background:none;
+    background-color:#fff;
+    margin:0;
+    font-size:0.85em;
+}
+.LeftNav ul li ul li a
+{
+    background:none;
+    padding:6px 0 5px 24px;
+
+}
+.LeftNav ul li ul li a:hover, .LeftNav ul li ul li a.active
+{
+    background:none;
+    color:#000 !important;
+}
+/*Left Navigation Level Three*/
+.LeftNav ul li ul li ul
+{
+
+    margin:0;
+    padding:0;
+    float:left;
+    border:none !important;
+
+
+}
+.LeftNav ul li ul li ul li
+{
+    margin:0; padding:0;
+}
+.LeftNav ul li ul li ul li a
+{
+    padding-left:30px;
+}
+.LeftNav ul#navitem2 li ul li ul li a,
+.LeftNav ul#navitem3 li ul li ul li a,
+.LeftNav ul#navitem4 li ul li ul li a
+{ background:url(static/images/images-structure/L3_bullet.gif) no-repeat 10% 60%; }
+
+.LeftNav ul#navitem2 li ul li ul li a:hover,
+.LeftNav ul#navitem2 li ul li ul li a.active,
+.LeftNav ul#navitem3 li ul li ul li a:hover,
+.LeftNav ul#navitem3 li ul li ul li a.active,
+.LeftNav ul#navitem4 li ul li ul li a:hover,
+.LeftNav ul#navitem4 li ul li ul li a.active
+{
+
+    text-decoration:underline;
+     background:url(static/images/images-structure/L3_bullet.gif) no-repeat 10% 60%;
+}
+
+/*Different Colour Sections*/
+/*Level one*/
+
+.LeftNav ul#navitem2 li a
+{
+    background:#EBEBEB url(static/images/images-structure/greyLeftNavBG.jpg) no-repeat bottom left;
+
+}
+.LeftNav ul#navitem2 li a:hover, .LeftNav ul#navitem2 li a.active
+{
+    background:#666666 url(static/images/images-structure/greyLeftNavBG_hover.jpg) no-repeat bottom left;
+
+}
+.LeftNav ul#navitem2 li a span.leftnavArrow
+{
+    background: url(static/images/images-structure/greyLeftNav_arrow.gif) no-repeat top right;
+
+}
+.LeftNav ul#navitem2 li a:hover span.leftnavArrow, .LeftNav ul#navitem2 li a.active span.leftnavArrow
+{
+    background: url(static/images/images-structure/greyLeftNavArrow_hover.gif) no-repeat top right;
+}
+.LeftNav ul#navitem3 li a
+{
+    background :#DED1DE url(static/images/images-structure/purpleLeftNavBG.jpg) no-repeat bottom left;
+}
+.LeftNav ul#navitem3 li a:hover, .LeftNav ul#navitem3 li a.active
+{
+    background:#5A1B5C url(static/images/images-structure/purpleLeftNavBG_hover.jpg) no-repeat bottom left;
+}
+.LeftNav ul#navitem3 li a span.leftnavArrow
+{
+    background: url(static/images/images-structure/purpleLeftNav_arrow.gif) no-repeat top right;
+}
+.LeftNav ul#navitem3 li a:hover span.leftnavArrow, .LeftNav ul#navitem3 li a.active span.leftnavArrow
+{
+    background:url(static/images/images-structure/purpleLeftNavArrow_hover.gif) no-repeat top right;
+}
+.LeftNav ul#navitem4 li a
+{
+    background:#E6EDF3 url(static/images/images-structure/blueLeftNavBG.jpg) no-repeat bottom left;
+}
+.LeftNav ul#navitem4 li a:hover, .LeftNav ul#navitem4 li a.active
+{
+    background:#00477D url(static/images/images-structure/blueLeftNavBG_hover.jpg) no-repeat bottom left;
+}
+.LeftNav ul#navitem4 li a span.leftnavArrow
+{
+    background:url(static/images/images-structure/blueLeftNav_arrow.gif) no-repeat top right;
+}
+.LeftNav ul#navitem4 li a:hover span.leftnavArrow, .LeftNav ul#navitem4 li a.active span.leftnavArrow
+{
+    background:url(static/images/images-structure/blueLeftNavArrow_hover.gif) no-repeat top right;
+}
+.LeftNav ul#navitem5 li a
+{
+    background:#EBEBEB url(static/images/images-structure/greyLeftNavBG.jpg) no-repeat bottom left;
+
+}
+.LeftNav ul#navitem5 li a:hover, .LeftNav ul#navitem2 li a.active
+{
+    background:#666666 url(static/images/images-structure/greyLeftNavBG_hover.jpg) no-repeat bottom left;
+
+}
+.LeftNav ul#navitem5 li a span.leftnavArrow
+{
+    background: url(static/images/images-structure/greyLeftNav_arrow.gif) no-repeat top right;
+
+}
+.LeftNav ul#navitem5 li a:hover span.leftnavArrow, .LeftNav ul#navitem2 li a.active span.leftnavArrow
+{
+    background: url(static/images/images-structure/greyLeftNavArrow_hover.gif) no-repeat top right;
+}
+
+/*level 2*/
+.LeftNav ul#navitem2 li ul
+{
+    border-right:1px solid #EBEBEB;
+    border-bottom:1px solid #EBEBEB;
+
+}
+.LeftNav ul#navitem2 li ul li
+{
+    background:none;
+    background:url(static/images/images-structure/greyL2_bg.gif) no-repeat top left;
+    margin:0;
+}
+.LeftNav ul#navitem2 li ul li a:hover, .LeftNav ul#navitem2 li ul li a.active
+{
+    background:url(static/images/images-structure/greyL2_bg_hover.gif) no-repeat top left;
+}
+
+.LeftNav ul#navitem3 li ul
+{
+    border-right:1px solid #DFD7E2;
+    border-bottom:1px solid #DFD7E2;
+
+}
+
+.LeftNav ul#navitem3 li ul li
+{
+    background:none;
+    background:#fff url(static/images/images-structure/purpleL2_bg.gif) no-repeat top left;
+    margin:0;
+}
+
+.LeftNav ul#navitem3 li ul li a:hover, .LeftNav ul#navitem3 li ul li a.active
+{
+    background:url(static/images/images-structure/purpleL2_bg_hover.gif) no-repeat top left;
+}
+.LeftNav ul#navitem4 li ul
+{
+    border-right:1px solid #D6E4EC;
+    border-bottom:1px solid #D6E4EC;
+}
+.LeftNav ul#navitem4 li ul li
+{
+    background:none;
+    background:url(static/images/images-structure/blueL2_bg.gif) no-repeat top left;
+    margin:0;
+}
+
+.LeftNav ul#navitem4 li ul li a:hover, .LeftNav ul#navitem4 li ul li a.active
+{
+    background:url(static/images/images-structure/blueL2_bg_hover.gif) no-repeat top left;
+}
+.LeftNav ul#navitem2 li ul li a,
+.LeftNav ul#navitem3 li ul li a,
+.LeftNav ul#navitem4 li ul li a
+{
+    background:none;
+
+}
+.LeftNav ul#navitem5 li ul
+{
+    border-right:1px solid #EBEBEB;
+    border-bottom:1px solid #EBEBEB;
+
+}
+.LeftNav ul#navitem5 li ul li
+{
+    background:none;
+    background:url(static/images/images-structure/greyL2_bg.gif) no-repeat top left;
+    margin:0;
+}
+.LeftNav ul#navitem5 li ul li a:hover, .LeftNav ul#navitem2 li ul li a.active
+{
+    background:url(static/images/images-structure/greyL2_bg_hover.gif) no-repeat top left;
+}
+
+/*Left Navigation Level Three*/
+.LeftNav ul#navitem2 li ul li ul li
+{
+    background:url(static/images/images-structure/greyL3_bg.jpg) repeat-y top left;
+}
+
+.LeftNav ul#navitem3 li ul li ul li
+{
+    background:url(static/images/images-structure/purpleL3_bg.jpg) repeat-y top left;
+}
+.LeftNav ul#navitem4 li ul li ul li
+{
+    background:url(static/images/images-structure/blueL3_bg.jpg) repeat-y top left;
+}
+.LeftNav ul#navitem5 li ul li ul li
+{
+    background:url(static/images/images-structure/greyL3_bg.jpg) repeat-y top left;
+}
+
+/*Right Column for generic content*/
+.wrap
+{
+    width:690px;
+}
+.wrap .mainContent
+{
+    float:left;
+    width:100%;
+}
+.wrap.nested .mainContent
+{
+    width:460px;
+}
+
+/*Breadcrumbs*/
+#breadcrumbs
+{
+    float:left; font-size:0.8em;
+}
+#breadcrumbs ul
+{
+    margin:8px 0 8px 20px; padding:0; list-style-type:none;
+}
+#breadcrumbs ul li
+{
+    margin:0; padding:0; display:inline; font-weight:bold;
+}
+#breadcrumbs ul li a
+{
+    background:url(static/images/images-structure/breadcrumb_chevron.gif) no-repeat right; padding-right:22px; font-weight:normal;
+}
+#breadcrumbs ul li a:hover
+{
+
+}
+/*More information links on content pages*/
+.moreInfo
+{
+    border-top:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+    padding:10px 0 10px 0;
+    margin:20px 0 0 0;
+}
+.moreInfo ul
+{
+    margin:0; padding:0; list-style-type:none;
+}
+.moreInfo ul li
+{
+    display:block;
+    width:215px;
+    margin:5px 0 5px 0;
+}
+.moreInfo ul li a
+{
+    display:block;
+    padding:3px 0 3px 0;
+    background:url(static/images/images-structure/moreinfo_arrow.gif) no-repeat right;
+    padding-right:20px;
+    font-weight:bold;
+}
+.moreInfo ul li a:hover
+{
+    background:url(static/images/images-structure/moreinfo_arrowHover.gif) no-repeat right;
+
+}
+
+/*Selection exercise Page*/
+.selectionMini
+{
+    width:225px;
+    background-color:#006699;
+    float:right;
+    margin:0 0 30px 20px;
+    padding:0;
+    color:#fff;
+    height:108px;
+    font-size:0.9em;
+}
+html>body .selectionMini { height:auto; min-height:108px; overflow:hidden}
+.selectionMini img
+{
+    float:left;
+}
+.selectionMiniright
+{
+    width:117px;
+    float:right;
+}
+.selectionMini .InnerContent
+{
+    height:86px;
+}
+html>body .selectionMini .InnerContent
+{
+    height:auto; min-height:86px; overflow:hidden;
+}
+
+.selectionMiniright p
+{
+    margin:6px 6px 25px 9px;
+}
+.selectionMiniright .readMoreLink
+{
+    margin:0;
+    padding:0;
+    display:inline;
+}
+.selectionMiniright .readMoreLink a
+{
+    display:block;
+    padding:4px 30px 4px 0px;
+    text-decoration:none;
+    text-align:right;
+    background: #003897 url(static/images/images-structure/ReadMoreArrow.gif) 96% 50% no-repeat;
+}
+
+.selectionMiniright .readMoreLink a span
+{
+    position:absolute; top:-999em;
+}
+
+.selectionMiniright .readMoreLink a:hover, .selectionMiniright .readMoreLink a:visited, .selectionMiniright .readMoreLink a
+{
+    color:#fff;
+}
