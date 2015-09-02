@@ -50,8 +50,8 @@ function widgets_init() {
   register_sidebar([
     'name'          => __('Primary', 'sage'),
     'id'            => 'sidebar-primary',
-    'before_widget' => '<section class="widget %1$s %2$s">',
-    'after_widget'  => '</section>',
+    'before_widget' => '<div class="GenericRight widget %1$s %2$s">',
+    'after_widget'  => '</div>',
     'before_title'  => '<h3>',
     'after_title'   => '</h3>'
   ]);

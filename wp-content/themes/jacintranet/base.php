@@ -14,18 +14,27 @@ use Roots\Sage\Wrapper;
           do_action('get_header');
           get_template_part('templates/header');
         ?>
-        <div class="wrap container" role="document">
-          <div class="content row">
-            <main class="main" role="main">
-              <?php include Wrapper\template_path(); ?>
-            </main><!-- /.main -->
-            <?php if (Config\display_sidebar()) : ?>
-              <aside class="sidebar" role="complementary">
-                <?php include Wrapper\sidebar_path(); ?>
-              </aside><!-- /.sidebar -->
-            <?php endif; ?>
-          </div><!-- /.content -->
-        </div><!-- /.wrap -->
+
+        <div id="PageWrapper">
+          <div id="PageContent" role="main">
+            <?php include Wrapper\template_path(); ?>
+          </div>
+
+          <div id="PageLeft">
+            <div class="LeftNav">
+              <?php
+              if (has_nav_menu('primary_navigation')) {
+                wp_nav_menu(['theme_location' => 'primary_navigation']);
+              }
+              ?>
+            </div>
+          </div>
+        </div>
+
+        <?php if (Config\display_sidebar()): ?>
+          <?php include Wrapper\sidebar_path(); ?>
+        <?php endif; ?>
+
         <?php
           do_action('get_footer');
           get_template_part('templates/footer');
