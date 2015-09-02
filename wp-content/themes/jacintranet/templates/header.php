@@ -13,36 +13,31 @@
 
 <div id="topnav">
   <?php
-  if (has_nav_menu('top_navigation')) {
-    wp_nav_menu(['theme_location' => 'top_navigation', 'walker' => new \Roots\Soil\Nav\NavWalker()]);
+
+  if (is_active_sidebar('topnav')) {
+    echo '<ul>';
+    dynamic_sidebar('topnav');
+    echo '</ul>';
   }
   ?>
+</div>
+
+<div id="banner">
+  <?php if (is_front_page()): ?>
+  <h1>Judicial Appointments Commission</h1>
+  <?php endif; ?>
+  <p>
+    <a title="Judicial Appointments Commission" href="<?php echo home_url(); ?>">
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/images/images-structure/home_logo.jpg" alt="Judicial Appointments Commission"  />
+    </a>
+  </p>
+</div>
+
+<div id="Accesslinks">
   <ul>
-    <li class="noBorder">
-      <a href="directory.htm">Staff Directory</a>
-    </li>
-    <li class="">
-      <a href="accessibility.htm">Accessibility</a>
-    </li>
-    <li class="">
-      <a href="853.htm">MoJ peopleFinder</a>
-    </li>
-    <li class="">Google Search
-      <form method="get" action="http://www.google.com/search">
-        <label for="q">
-          <input type="text" id="q" name="q" class="searchbox">
-          <input id="searchButton" class="SearchBtn" type="submit" name="searchButton" value="">
-        </label>
-      </form>
-    </li>
-    <li class="">Intranet Search
-      <form action="http://intranet.justice.gsi.gov.uk/SearchJAC.do" onsubmit="Search('searchText', 'Enter keywords'); return false;" method="get" name"query"="">
-      <label for="searchfunction">
-        <input id="searchText" class="searchbox" name="query" type="text">
-        <input id="searchButton" class="SearchBtn" type="submit" name="searchButton" value="">
-      </label>
-      </form>
-    </li>
-    <li class="hidden"><a href="http://intranet.justice.gsi.gov.uk/SearchJAC.do">Search</a></li>
+    <li><a href="#PageWrapper" accesskey="s">Skip Navigation</a></li>
+    <li><a href="<?php echo home_url(); ?>" accesskey="1">Go to the home page</a></li>
+    <li><a href="<?php // @TODO: Link to help page ?>" accesskey="6">Go to the help page</a></li>
+    <li><a href="<?php // @TODO: Link to accessibility statement page ?>" accesskey="0">Go to the accessibility statement page</a></li>
   </ul>
 </div>

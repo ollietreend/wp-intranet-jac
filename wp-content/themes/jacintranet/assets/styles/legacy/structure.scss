@@ -89,6 +89,9 @@ html>body #footer                {height:auto; min-height:40px; overflow:hidden;
 #topnav ul
 {
     margin:3px 0 3px 0; padding:0; list-style-type:none;
+  .menu {
+    display: inline;
+  }
 }
 #topnav ul li
 {
@@ -98,7 +101,8 @@ html>body #footer                {height:auto; min-height:40px; overflow:hidden;
 {
     margin:0 0 0 5px; padding:0; color:#fff !important;
 }
-#topnav ul li.noBorder
+#topnav ul li.noBorder,
+#topnav ul > li:first-child
 {
     background:none; margin-left:0; padding-left:0;
 }
@@ -150,7 +154,8 @@ html>body #footer                {height:auto; min-height:40px; overflow:hidden;
 {
     margin:0 0 0 5px; padding:0; color:#fff !important;
 }
-#footer ul li.noBorder
+#footer ul li.noBorder,
+#footer > ul > li:first-child
 {
     background:none; margin-left:0; padding-left:0;
 }

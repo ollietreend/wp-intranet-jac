@@ -18,6 +18,7 @@ $sage_includes = [
   'lib/assets.php',                // Scripts and stylesheets
   'lib/titles.php',                // Page titles
   'lib/plugins.php',               // Plugins required by theme
+  'lib/widgets.php',               // Custom sidebar widgets
   'lib/extras.php',                // Custom functions
 ];
 

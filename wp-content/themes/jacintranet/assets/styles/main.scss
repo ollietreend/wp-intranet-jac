@@ -8,4 +8,7 @@
 @import "legacy/basic";
 @import "legacy/structure";
 @import "legacy/globalstyles";
-@import "legacy/home";
+body.home {
+  // This stylesheet only applies to the homepage
+  @import "legacy/home";
+}

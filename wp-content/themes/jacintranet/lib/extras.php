@@ -31,3 +31,12 @@ function excerpt_more() {
   return ' &hellip; <a href="' . get_permalink() . '">' . __('Continued', 'sage') . '</a>';
 }
 add_filter('excerpt_more', __NAMESPACE__ . '\\excerpt_more');
+
+function topnav_widget_nav_menu_args($nav_menu_args, $nav_menu, $args) {
+  if ($args['id'] == 'topnav') {
+    // Set menu walker
+  }
+
+  return [$nav_menu_args, $nav_menu, $args];
+}
+add_filter('widget_nav_menu_args', __NAMESPACE__ . '\\topnav_widget_nav_menu_args', 10, 3);
