@@ -40,3 +40,11 @@ function topnav_widget_nav_menu_args($nav_menu_args, $nav_menu, $args) {
   return [$nav_menu_args, $nav_menu, $args];
 }
 add_filter('widget_nav_menu_args', __NAMESPACE__ . '\\topnav_widget_nav_menu_args', 10, 3);
+
+/**
+ * Add image sizes
+ */
+function add_image_sizes() {
+  add_image_size('sidebar-image', 202);
+}
+add_action('after_setup_theme', __NAMESPACE__ . '\\add_image_sizes');

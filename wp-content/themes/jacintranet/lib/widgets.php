@@ -79,3 +79,27 @@ class Widget_Google_Search extends \WP_Widget {
   }
 
 }
+
+/**
+ * Override default 'screen options' for Simple Image Widget.
+ * Hide unused options by default.
+ *
+ * @param $hidden_fields
+ * @return array|mixed
+ */
+function simple_image_widget_hidden_fields($hidden_fields) {
+  $hidden_fields = get_user_option( 'siw_hidden_fields', get_current_user_id() );
+
+  // Fields that are hidden by default.
+  if ( false === $hidden_fields ) {
+    $hidden_fields = array(
+      'image_size',
+      'link_classes',
+      'link_text',
+      'text',
+    );
+  }
+
+  return $hidden_fields;
+}
+add_filter('simple_image_widget_hidden_fields', __NAMESPACE__ . '\\simple_image_widget_hidden_fields');

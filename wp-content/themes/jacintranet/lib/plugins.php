@@ -23,8 +23,8 @@ function jacintranet_register_required_plugins() {
     ),
 
     array(
-      'name'        => 'Image Widget',
-      'slug'        => 'image-widget',
+      'name'        => 'Simple Image Widget',
+      'slug'        => 'simple-image-widget',
       'required'    => true,
     ),
 
