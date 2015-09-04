@@ -37,5 +37,6 @@ add_filter('excerpt_more', __NAMESPACE__ . '\\excerpt_more');
  */
 function add_image_sizes() {
   add_image_size('sidebar-image', 202);
+  add_image_size('banner-image', 222, 140, true);
 }
 add_action('after_setup_theme', __NAMESPACE__ . '\\add_image_sizes');

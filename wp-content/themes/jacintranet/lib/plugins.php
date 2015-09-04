@@ -28,6 +28,13 @@ function jacintranet_register_required_plugins() {
       'required'    => true,
     ),
 
+    array(
+      'name'        => 'Advanced Custom Fields Pro',
+      'slug'        => 'advanced-custom-fields-pro',
+      'source'      => get_stylesheet_directory() . '/lib/plugins/advanced-custom-fields-pro.zip',
+      'required'    => true,
+    ),
+
     // This is an example of the use of 'is_callable' functionality. A user could - for instance -
     // have WPSEO installed *or* WPSEO Premium. The slug would in that last case be different, i.e.
     // 'wordpress-seo-premium'.
