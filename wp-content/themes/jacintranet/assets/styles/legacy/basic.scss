@@ -19,11 +19,11 @@ h1
     margin:0 0 14px 0;
     padding:0 0 12px 0;
     border-bottom:1px solid #ccc;
-    
+
 }
 h2
 {
-    font-size:1.3em; 
+    font-size:1.3em;
     padding:0;
     margin:10px 0 5px 0;
     color:#5A075C;
@@ -39,7 +39,7 @@ h3, h4, h5, h6
     font-size:1em;
     color:#5A075C;
 }
-p 
+p
 {
     margin:0 0 8px 0;
 }
@@ -53,18 +53,21 @@ a:visited
 }
 a:hover
 {
-    text-decoration:underline; 
+    text-decoration:underline;
     color:#5A075C;
 }
 a:focus
 {
-    text-decoration:underline; 
+    text-decoration:underline;
     color:#5A075C;
 }
 a:active
 {
-    text-decoration:underline; 
+    text-decoration:underline;
     color:#5A075C;
+}
+a img {
+  display: block;
 }
 img
 {
@@ -72,11 +75,11 @@ img
 }
 ul li a
 {
-    font-weight:normal; 
-    text-decoration:none; 
+    font-weight:normal;
+    text-decoration:none;
     color:#5A075C;
 }
-table 
+table
 {
     font-size:100%;/* Needed for IE5.x */
     border:0px;
@@ -84,14 +87,14 @@ table
     border-collapse:collapse;
     border-spacing:0px; /* Netscape 6 */
 }
-th, td 
+th, td
 {
     vertical-align:top;
     padding:0;
     padding-bottom:0.5em;
     margin:0;
 }
-th 
+th
 {
     text-align:left;
     font-weight:bold;
@@ -103,18 +106,18 @@ th
 }
 .hidden
 {
-    position:absolute; 
+    position:absolute;
     top:-999em;
 }
 
 /*Classes for floating images*/
 .left
 {
-    float:left; 
+    float:left;
     margin: 0 7px 5px 0;
 }
 .right
 {
-    float:right; 
+    float:right;
     margin: 0 0 5px 5px;
 }
