@@ -17,7 +17,7 @@
     margin:0 0 25px 20px;
     height:110px;
     padding:0 0 0 0;
-        
+
 }
 html>body .GenericRight
 {
@@ -58,7 +58,7 @@ html>body .GenericRight
 }
 .GenericRight p
 {
-    background:url(http://intranet.justice.gsi.gov.uk/jac/static/images/images-structure/RightBullet.gif) 0px 4px no-repeat; 
+    background:url(../../assets/images/images-structure/RightBullet.gif) 0px 4px no-repeat;
     padding:0 0 0 12px;
     margin:0 5px 0 8px;
 }
@@ -86,11 +86,14 @@ html>body .GenericRight
     margin:0 0 0 8px;
     padding:0 0 0 12px;
     font-weight:bold;
-    background:url(http://intranet.justice.gsi.gov.uk/jac/static/images/images-structure/RightBullet.gif) 0px 4px no-repeat; 
+    background:url(../../assets/images/images-structure/RightBullet.gif) 0px 4px no-repeat;
+}
+.GenericRight img {
+  display: block;
 }
 .IconPDF
 {
-    background:url(http://intranet.justice.gsi.gov.uk/jac/static/images/images-structure/PDFicon.gif) no-repeat;
+    background:url(../../assets/images/images-structure/PDFicon.gif) no-repeat;
     float:right;
     padding:4px 3px 10px 0;
     margin-right:3px;
@@ -98,21 +101,21 @@ html>body .GenericRight
 }
 .IconDOC
 {
-    background:url(http://intranet.justice.gsi.gov.uk/jac/static/images/images-structure/DOCIcon.gif) no-repeat;
+    background:url(../../assets/images/images-structure/DOCIcon.gif) no-repeat;
     float:right;
     padding:4px 3px 10px 0;
     margin-right:3px;
     font-size:0.9em;
-    
+
 }
 .IconXLS
 {
-    background:url(http://intranet.justice.gsi.gov.uk/jac/static/images/images-structure/XLSicon.gif) no-repeat;
+    background:url(../../assets/images/images-structure/XLSicon.gif) no-repeat;
     float:right;
     padding:4px 3px 10px 0;
     margin-right:3px;
     font-size:0.9em;
-    
+
 }
 .IconPDF a, .IconDOC a, .IconXLS a,
 {
@@ -137,12 +140,12 @@ html>body .GenericRight
 {
     margin:0;
     padding:0 0 5px 0;
-    color:#000;    
+    color:#000;
 }
-.selectionListings .more 
+.selectionListings .more
 {
     float:right;
-    background:url(http://intranet.justice.gsi.gov.uk/jac/static/images/images-structure/breadcrumb_chevron.gif) no-repeat 100% 30%; 
+    background:url(../../assets/images/images-structure/breadcrumb_chevron.gif) no-repeat 100% 30%;
     padding-right:20px
 }
 .selectionListings .more a
@@ -158,7 +161,7 @@ html>body .GenericRight
 {
     text-decoration:underline;
 }
- 
+
 /*Sitemap*/
 #sitemap
 {

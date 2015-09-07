@@ -40,3 +40,17 @@ function add_image_sizes() {
   add_image_size('banner-image', 222, 140, true);
 }
 add_action('after_setup_theme', __NAMESPACE__ . '\\add_image_sizes');
+
+/**
+ * Default settings for Breadcumb NavXT plugin
+ *
+ * @param $settings
+ * @return mixed
+ */
+function bcn_settings_init($settings) {
+  $settings['Hhome_template'] = '<span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" title="Go to %title%." href="%link%" class="%type%">Home</a></span>';
+  $settings['Hhome_template_no_anchor'] = '<span typeof="v:Breadcrumb"><span property="v:title">Home</span></span>';
+
+  return $settings;
+}
+add_filter('bcn_settings_init', __NAMESPACE__ . '\\bcn_settings_init');

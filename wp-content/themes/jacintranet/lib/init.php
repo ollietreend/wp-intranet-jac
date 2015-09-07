@@ -4,6 +4,8 @@ namespace Roots\Sage\Init;
 
 use Roots\Sage\Assets;
 
+require 'classes/leftnav-walker.php';
+
 /**
  * Theme setup
  */

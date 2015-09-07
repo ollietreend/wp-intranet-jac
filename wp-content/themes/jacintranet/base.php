@@ -15,6 +15,14 @@ use Roots\Sage\Wrapper;
           get_template_part('templates/header');
         ?>
 
+        <?php if (!is_front_page()): ?>
+          <div id="breadcrumbs">
+            <ul>
+              <?php echo bcn_display_list(); ?>
+            </ul>
+          </div>
+        <?php endif; ?>
+
         <div id="PageWrapper">
           <div id="PageContent" role="main">
             <?php include Wrapper\template_path(); ?>
@@ -24,7 +32,11 @@ use Roots\Sage\Wrapper;
             <div class="LeftNav">
               <?php
               if (has_nav_menu('primary_navigation')) {
-                wp_nav_menu(['theme_location' => 'primary_navigation']);
+                wp_nav_menu([
+                  'theme_location' => 'primary_navigation',
+                  'walker' => new \JACIntranet\Theme\Nav\LeftNavWalker(),
+                  'items_wrap' => '%3$s',
+                ]);
               }
               ?>
             </div>
