@@ -54,3 +54,37 @@ function bcn_settings_init($settings) {
   return $settings;
 }
 add_filter('bcn_settings_init', __NAMESPACE__ . '\\bcn_settings_init');
+
+/**
+ * Generate a file download link
+ * Given a file array, return a link in the format:
+ * "Download 1.77Mb (PDF)"
+ */
+class FileDownloadLink {
+  public $file;
+
+  public function __construct($file) {
+    $file['path'] = get_attached_file($file['ID']);
+    $file['filetype'] = wp_check_filetype($file['path']);
+    $file['filesize'] = filesize($file['path']);
+    $this->file = $file;
+  }
+
+  public function __toString() {
+    $divClass = 'Icon' . strtoupper($this->file['filetype']['ext']);
+    $text = $this->linkText();
+    $url = $this->file['url'];
+
+    $output = '<div class="' . $divClass . '">';
+    $output .= '<a title="This document will open in a new window" href="' . $url . '" target="_blank">' . $text . '</a>';
+    $output .= '</div>';
+
+    return $output;
+  }
+
+  public function linkText() {
+    $size = size_format($this->file['filesize']);
+    $ext = strtoupper($this->file['filetype']['ext']);
+    return sprintf('Download %s (%s)', $size, $ext);
+  }
+}
