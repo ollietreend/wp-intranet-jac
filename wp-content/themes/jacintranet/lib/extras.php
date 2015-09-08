@@ -75,7 +75,7 @@ class FileDownloadLink {
     $text = $this->linkText();
     $url = $this->file['url'];
 
-    $output = '<div class="' . $divClass . '">';
+    $output = '<div class="' . $divClass . ' file_download_link">';
     $output .= '<a title="This document will open in a new window" href="' . $url . '" target="_blank">' . $text . '</a>';
     $output .= '</div>';
 

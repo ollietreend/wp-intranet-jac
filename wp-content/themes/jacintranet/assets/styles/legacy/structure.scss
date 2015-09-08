@@ -225,7 +225,11 @@ html>body #footer                {height:auto; min-height:40px; overflow:hidden;
     margin:0;
     padding:0;
     float:left;
-
+    display: none;
+}
+.LeftNav ul li.active ul
+{
+    display: block;
 }
 .LeftNav ul li ul li
 {

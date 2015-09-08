@@ -91,35 +91,29 @@ html>body .GenericRight
 .GenericRight img {
   display: block;
 }
+.file_download_link {
+  float: right;
+  padding: 4px 3px 10px 0;
+  margin-right: 3px;
+  font-size: 0.9em;
+}
+.file_download_link a {
+  display:block;
+}
 .IconPDF
 {
     background:url(../../assets/images/images-structure/PDFicon.gif) no-repeat;
-    float:right;
-    padding:4px 3px 10px 0;
-    margin-right:3px;
-    font-size:0.9em;
 }
 .IconDOC
 {
     background:url(../../assets/images/images-structure/DOCIcon.gif) no-repeat;
-    float:right;
-    padding:4px 3px 10px 0;
-    margin-right:3px;
-    font-size:0.9em;
-
 }
 .IconXLS
 {
     background:url(../../assets/images/images-structure/XLSicon.gif) no-repeat;
-    float:right;
-    padding:4px 3px 10px 0;
-    margin-right:3px;
-    font-size:0.9em;
-
 }
 .IconPDF a, .IconDOC a, .IconXLS a,
 {
-    display:block;
     padding:0 0 0 25px;
 }
 
