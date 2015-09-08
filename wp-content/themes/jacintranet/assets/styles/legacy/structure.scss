@@ -581,3 +581,17 @@ html>body .selectionMini .InnerContent
 {
     color:#fff;
 }
+
+/**
+ * News posts
+ */
+.post_header {
+  margin-bottom: 8px;
+}
+.post_content {
+  overflow: hidden;
+}
+.wp-post-image {
+  float: left;
+  margin: 0 15px 15px 0;
+}

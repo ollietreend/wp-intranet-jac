@@ -36,6 +36,7 @@ add_filter('excerpt_more', __NAMESPACE__ . '\\excerpt_more');
  * Add image sizes
  */
 function add_image_sizes() {
+  set_post_thumbnail_size(90, 90, true);
   add_image_size('sidebar-image', 202);
   add_image_size('banner-image', 222, 140, true);
 }
@@ -88,3 +89,11 @@ class FileDownloadLink {
     return sprintf('Download %s (%s)', $size, $ext);
   }
 }
+
+/**
+ * Filter archive titles
+ */
+function get_the_archive_title($title) {
+  return preg_replace('/^(Month|Year):/', 'News Archive:', $title);
+}
+add_filter('get_the_archive_title', __NAMESPACE__ . '\\get_the_archive_title');

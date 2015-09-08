@@ -25,7 +25,19 @@ use Roots\Sage\Wrapper;
 
         <div id="PageWrapper">
           <div id="PageContent" role="main">
-            <?php include Wrapper\template_path(); ?>
+            <?php
+
+            if (!is_front_page()) {
+              echo '<div class="wrap nested">';
+            }
+
+            include Wrapper\template_path();
+
+            if (!is_front_page()) {
+              echo '</div>';
+            }
+
+            ?>
           </div>
 
           <div id="PageLeft">
