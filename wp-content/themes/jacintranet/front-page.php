@@ -2,18 +2,22 @@
 
 the_post();
 get_template_part('templates/banners');
-the_content();
+
+if (get_the_content()) {
+  the_content();
+  echo '<hr/>';
+}
 
 // Recent news posts
-$posts = new WP_Query([
+$news_posts = new WP_Query([
   'post_type' => 'post',
   'date_query' => [
     'after' => '-1 month',
   ],
 ]);
 
-while ($posts->have_posts()) {
-  $posts->the_post();
+while ($news_posts->have_posts()) {
+  $news_posts->the_post();
   get_template_part('templates/content');
 }
 wp_reset_postdata();
