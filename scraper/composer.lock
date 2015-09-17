@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e2c66126ef5d72dc9dc32ec0a6d15a52",
+    "hash": "8a4db1c567b23b784eec234190fb400f",
     "packages": [
         {
             "name": "codeguy/arachnid",
@@ -540,6 +540,9 @@
     },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": ">=5.4",
+        "ext-tidy": "*"
+    },
     "platform-dev": []
 }

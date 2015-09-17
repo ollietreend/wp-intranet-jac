@@ -16,6 +16,7 @@
 namespace Scraper;
 
 use FileSystemCache;
+use FileSystemCacheKey;
 
 class CollectionToScrape {
     /**
@@ -44,7 +45,15 @@ class CollectionToScrape {
      *
      * @var null|array
      */
-    public $crawlResults = null;
+    protected $crawlResults = null;
+
+    /**
+     * Array of Page objects representing
+     * internal pages from crawl results.
+     *
+     * @var null|Page[]
+     */
+    protected $pages = null;
 
     /**
      * Class constructor
@@ -77,13 +86,13 @@ class CollectionToScrape {
      * @return array|mixed|null
      */
     public function getCrawlResults() {
-        if ($this->forceSpider || FileSystemCache::retrieve($this->cacheKey) === false) {
-            $this->crawlResource();
-            $this->forceSpider = false;
-        }
-
         if (is_null($this->crawlResults)) {
-            $this->crawlResults = FileSystemCache::retrieve($this->cacheKey);
+            if ($this->forceSpider || FileSystemCache::retrieve($this->cacheKey) === false) {
+                $this->crawlResource();
+                $this->forceSpider = false;
+            } else {
+                $this->crawlResults = FileSystemCache::retrieve($this->cacheKey);
+            }
         }
 
         return $this->crawlResults;
@@ -99,16 +108,40 @@ class CollectionToScrape {
         FileSystemCache::store($this->cacheKey, $crawlResults);
     }
 
-    public function pagesToScrape() {
-        $resources = $this->getCrawlResults();
+    /**
+     * Generate an array of internal pages from the spider results.
+     * Each page will be represented as a Page object.
+     *
+     * @return Page[]
+     */
+    protected function generatePagesFromCrawlResults() {
+        $results = $this->getCrawlResults();
 
         // Filter resources to find internal HTML pages
-        $resources = array_filter($resources, function($resource) {
+        $results = array_filter($results, function($resource) {
             // If $resource['title'] exists, we know this is a HTML page
-            // @TODO: This is filtering too many pages? Why is that? See Google Chrome...
             return ( isset($resource['title']) && $resource['external_link'] == false );
         });
 
-        return $resources;
+        $pages = array_map(function($page) {
+            $absoluteUrl = $page['absolute_url'];
+            $relativeUrl = str_replace($this->urlToSpider, '', $absoluteUrl);
+            return new Page($absoluteUrl, $relativeUrl, $page);
+        }, $results);
+
+        return $pages;
+    }
+
+    /**
+     * Get the crawled page objects.
+     *
+     * @return Page[]
+     */
+    public function getPages() {
+        if (is_null($this->pages)) {
+            $this->pages = $this->generatePagesFromCrawlResults();
+        }
+
+        return $this->pages;
     }
 }

@@ -1,21 +1,31 @@
 <?php
 
-namespace Scraper\NavigationStructure;
+namespace Scraper\Page;
 
-use Goutte\Client;
+use Scraper\Page;
 use Symfony\Component\DomCrawler\Crawler;
 
-class SinglePageNav {
-    public $page = [];
+class NavigationMenu {
+    /**
+     * Holds the page object.
+     *
+     * @var null|Page
+     */
+    public $page = null;
 
+    /**
+     * Holds the page navigation menu.
+     *
+     * @var array
+     */
     public $menu = [];
 
     /**
      * Constructor method
      *
-     * @param array $page A page array, as supplied by Arachnid
+     * @param Page $page
      */
-    public function __construct(array $page) {
+    public function __construct(Page $page) {
         $this->page = $page;
         $this->menu = $this->scrapeMenu();
     }
@@ -26,8 +36,7 @@ class SinglePageNav {
      * @return array
      */
     public function scrapeMenu() {
-        $client = new Client();
-        $crawler = $client->request('GET', $this->page['absolute_url']);
+        $crawler = $this->page->getCrawler();
 
         $menu = [];
 
@@ -40,7 +49,7 @@ class SinglePageNav {
             try {
                 $sibling = $node->nextAll()->getNode(0);
                 $sibling = new Crawler($sibling);
-            } catch (InvalidArgumentException $e) {
+            } catch (\InvalidArgumentException $e) {
                 // There are no siblings after the current node.
                 // Ignore this empty menu – don't add it to the $menu array.
                 return false;

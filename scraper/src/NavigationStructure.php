@@ -46,11 +46,12 @@ class NavigationStructure {
      * Generate the navigation structure.
      */
     public function generateNavigationStructure() {
-        $pages = $this->collection->pagesToScrape();
+        $pages = $this->collection->getPages();
+
         $structure = [];
 
         foreach ($pages as $page) {
-            $pageNav = new NavigationStructure\SinglePageNav($page);
+            $pageNav = $page->getNavigationMenu();
             $structure = $this->nestedMerge($structure, $pageNav->menu);
         }
 
