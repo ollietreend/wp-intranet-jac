@@ -9,6 +9,7 @@
 
 namespace Scraper\Page;
 
+use Symfony\Component\CssSelector\CssSelector;
 use Symfony\Component\DomCrawler\Crawler;
 use Scraper\Page;
 use tidy;
@@ -98,6 +99,37 @@ class Content {
         }
 
         return $this->cache['body'];
+    }
+
+    public function getDownloads() {
+        if (!isset($this->cache['downloads'])) {
+            if ($this->page->hasDownloads()) {
+                $crawler = $this->page->getCrawler();
+
+                $links = $crawler->filter('.PanelsRight > .GenericRight ul .Headline > a');
+
+                // Prefix to use for absolute URLs
+                $absUrlPrefix = substr($this->page->url, 0, 0 - strlen($this->page->relativeUrl));
+
+                $return = [];
+                foreach ($links as $link) {
+                    $text = utf8_decode($link->nodeValue);
+                    $href = $link->getAttribute('href');
+
+                    $return[] = [
+                        'title' => $text,
+                        'relativeUrl' => $href,
+                        'url' => $absUrlPrefix . $href,
+                    ];
+                }
+            } else {
+                $return = [];
+            }
+
+            $this->cache['downloads'] = $return;
+        }
+
+        return $this->cache['downloads'];
     }
 
     /**

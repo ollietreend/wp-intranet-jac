@@ -13,6 +13,14 @@ set_time_limit(0);
 // Import autoloader
 require 'vendor/autoload.php';
 require '../wp-load.php';
+require '../wp-admin/includes/image.php';
+require '../wp-admin/includes/file.php';
+require '../wp-admin/includes/media.php';
+
+use Scraper\CollectionToScrape as CollectionToScrape;
+use Scraper\NavigationStructure as NavigationStructure;
+use Scraper\PageHierarchy as PageHierarchy;
+use Scraper\WordPress\Importer\Page as PageImporter;
 
 // Configure filesystem cache
 FileSystemCache::$cacheDir = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'cache';
@@ -22,84 +30,102 @@ register_shutdown_function(function() {
     echo PHP_EOL;
 });
 
-echo "Spidering site\n";
-$collection = new Scraper\CollectionToScrape('http://jacintranet.dev/scraper/import_content/', false, 1000);
+$scrapeConfig = [
+    'url'  => 'http://jacintranet.dev/scraper/import_content/',
+    'path' => $_SERVER['DOCUMENT_ROOT'] . '/scraper/import_content/',
+];
+
+/**
+ * Spider site
+ */
+echo "Spidering site <br/>";
+$collection = new CollectionToScrape($scrapeConfig['url'], false, 1000);
 $collection->getCrawlResults();
 
-echo "Generating navigation structure\n";
-$navigationStructure = new Scraper\NavigationStructure($collection);
+/**
+ * Generate navigation structure
+ */
+echo "Generating navigation structure <br/>";
+$navigationStructure = new NavigationStructure($collection);
 $structure = $navigationStructure->getStructure();
 
-/*
-echo "Diffing between pages and navigation structure... ";
-function extractNavUrls($structure) {
-    $return = [];
-
-    foreach ($structure as $menuItem) {
-        if ($menuItem['url'] !== '#') {
-            $return[] = $menuItem['url'];
-        }
-
-        if (isset($menuItem['children'])) {
-            $return = array_merge($return, extractNavUrls($menuItem['children']));
-        }
-    }
-
-    return $return;
-}
-
-function extractSpideredUrls($pages) {
-    $return = [];
-
-    foreach ($pages as $page) {
-        $return[] = $page->relativeUrl;
-    }
-
-    return $return;
-}
-
-$navUrls = extractNavUrls($structure);
-$spideredUrls = extractSpideredUrls($collection->getPages());
-
-$missingFromPrimaryNav = array_diff($spideredUrls, $navUrls);
-
-echo count($missingFromPrimaryNav) . " pages not in the primary nav.\n";
-*/
-
-echo "Importing pages into WordPress...\n";
+/**
+ * Import page content
+ */
+echo "Importing pages into WordPress <br/>";
 $pages = $collection->getPages();
-$pageImporter = new Scraper\WordPress\Importer\Page();
+$pageImporter = new PageImporter();
 $pageImporter->authorId = 2;
-$pageImporter->skipExisting = false;
+$pageImporter->skipExisting = true;
 
 foreach ($pages as $page) {
     if ($page->isFrontPage()) {
         continue;
     }
 
-    echo '<p>Importing page ' . $page->getContent()->getTitle() . '</p>';
     $pageImporter->import($page);
 }
 
-echo "Importing page hierarchy...";
-$pageHierarchy = new \Scraper\PageHierarchy($navigationStructure, $collection->getPages());
+/**
+ * Import page hierarchy
+ */
+echo "Importing page hierarchy <br/>";
+$pageHierarchy = new PageHierarchy($navigationStructure, $collection->getPages());
 $pageHierarchy->getHierarchyMap();
 
 foreach ($pages as $page) {
-    if (is_null($page->wpPostId)) {
+    if ($page->isFrontPage()) {
         continue;
     }
 
-    echo '<p>Assigning parent to ' . $page->getContent()->getTitle() . '</p>';
-
     $parentWpPostId = $pageHierarchy->getParentWpPostId($page);
-    $thePost = get_post($page->wpPostId);
-    $thePost->post_parent = ( is_null($parentWpPostId) ? 0 : $parentWpPostId );
-    $update = wp_insert_post($thePost, true);
-
-    if (!is_int($update)) {
-        var_dump($update);
+    if ($page->wpPost->WP_Post->post_parent != $parentWpPostId) {
+        $page->wpPost->save([
+            'post_parent' => $parentWpPostId,
+        ]);
     }
+}
+
+/**
+ * Testing new stuff here.
+ */
+
+foreach ($pages as $page) {
+    if (!$page->hasDownloads()) {
+        continue;
+    }
+
+    $downloads = $page->getContent()->getDownloads();
+    foreach ($downloads as $download) {
+        $filePath = $scrapeConfig['path'] . $download['relativeUrl'];
+
+        if (!file_exists($filePath)) {
+            throw new \Exception('Missing file: ' . $download['relativeUrl']);
+        }
+
+        $tmpFilePath = tempnam(sys_get_temp_dir(), 'jacimport');
+        copy($filePath, $tmpFilePath);
+        clearstatcache(true, $tmpFilePath); // PHP bug: https://bugs.php.net/bug.php?id=65701
+
+        $fileArray = [
+            'name' => basename($filePath),
+            'tmp_name' => $tmpFilePath,
+        ];
+        $assocPostId = $page->getWpPost()->WP_Post->ID;
+        $desc = $download['title'];
+
+        $success = media_handle_sideload($fileArray, $assocPostId, $desc);
+
+        if (file_exists($tmpFilePath)) {
+            @unlink($tmpFilePath);
+        }
+
+        var_dump($success);
+
+        exit;
+    }
+
+    exit;
 }
 
 echo "Done";

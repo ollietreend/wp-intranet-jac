@@ -20,10 +20,4 @@ class Base extends WPBase {
      * @var bool
      */
     public $skipExisting = true;
-
-    public function getPostMetaFields(ScraperPage $page, $extraFields = []) {
-        return array_merge([
-            'reddot_import' => 1,
-        ], $extraFields);
-    }
 }

@@ -2,7 +2,7 @@
 
 namespace Scraper;
 
-use Scraper\WordPress\Importer\Page as PageImporter;
+use Scraper\WordPress\WordPress;
 
 class PageHierarchy {
     /**
@@ -46,10 +46,6 @@ class PageHierarchy {
     }
 
     private function generateHierarchyMap() {
-        // Make sure each page has a wpPostId assigned.
-        $pageImporter = new PageImporter();
-        $pageImporter->setPostIdForPages($this->pages);
-
         $structure = $this->nav->getStructure();
         $structure = $this->mapPagesToStructure($structure);
 
@@ -83,6 +79,9 @@ class PageHierarchy {
     }
 
     public function getParentWpPostId(Page $page) {
+        // Ensure each page has a wpPostId assigned.
+        WordPress::attachWpPagesToScraperPages($this->pages);
+
         $hierarchy = $this->getHierarchyMap();
         $parent = $this->findParentInHierarchy($hierarchy, $page);
 
