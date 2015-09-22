@@ -17,10 +17,14 @@ require '../wp-admin/includes/image.php';
 require '../wp-admin/includes/file.php';
 require '../wp-admin/includes/media.php';
 
-use Scraper\CollectionToScrape as CollectionToScrape;
-use Scraper\NavigationStructure as NavigationStructure;
-use Scraper\PageHierarchy as PageHierarchy;
+use Scraper\CollectionToScrape;
+use Scraper\NavigationStructure;
+use Scraper\PageHierarchy;
+use Scraper\WordPress\Importer\Base as BaseImporter;
 use Scraper\WordPress\Importer\Page as PageImporter;
+use Scraper\WordPress\Importer\Menu as MenuImporter;
+use Scraper\WordPress\Importer\PageDownloads as PageDownloadsImporter;
+use Scraper\WordPress\NavMenu\NavMenu;
 
 // Configure filesystem cache
 FileSystemCache::$cacheDir = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'cache';
@@ -30,10 +34,15 @@ register_shutdown_function(function() {
     echo PHP_EOL;
 });
 
+// Configure import
 $scrapeConfig = [
     'url'  => 'http://jacintranet.dev/scraper/import_content/',
     'path' => $_SERVER['DOCUMENT_ROOT'] . '/scraper/import_content/',
 ];
+BaseImporter::$authorId = 2;
+BaseImporter::$skipExisting = true;
+BaseImporter::$baseFilePath = $scrapeConfig['path'];
+PageDownloadsImporter::$acfFieldKey = 'field_55eda9ba9771a';
 
 /**
  * Spider site
@@ -54,16 +63,14 @@ $structure = $navigationStructure->getStructure();
  */
 echo "Importing pages into WordPress <br/>";
 $pages = $collection->getPages();
-$pageImporter = new PageImporter();
-$pageImporter->authorId = 2;
-$pageImporter->skipExisting = true;
 
 foreach ($pages as $page) {
     if ($page->isFrontPage()) {
         continue;
     }
 
-    $pageImporter->import($page);
+    PageImporter::import($page);
+    PageDownloadsImporter::import($page);
 }
 
 /**
@@ -87,45 +94,9 @@ foreach ($pages as $page) {
 }
 
 /**
- * Testing new stuff here.
+ * Import page hierarchy into primary navigation menu
  */
-
-foreach ($pages as $page) {
-    if (!$page->hasDownloads()) {
-        continue;
-    }
-
-    $downloads = $page->getContent()->getDownloads();
-    foreach ($downloads as $download) {
-        $filePath = $scrapeConfig['path'] . $download['relativeUrl'];
-
-        if (!file_exists($filePath)) {
-            throw new \Exception('Missing file: ' . $download['relativeUrl']);
-        }
-
-        $tmpFilePath = tempnam(sys_get_temp_dir(), 'jacimport');
-        copy($filePath, $tmpFilePath);
-        clearstatcache(true, $tmpFilePath); // PHP bug: https://bugs.php.net/bug.php?id=65701
-
-        $fileArray = [
-            'name' => basename($filePath),
-            'tmp_name' => $tmpFilePath,
-        ];
-        $assocPostId = $page->getWpPost()->WP_Post->ID;
-        $desc = $download['title'];
-
-        $success = media_handle_sideload($fileArray, $assocPostId, $desc);
-
-        if (file_exists($tmpFilePath)) {
-            @unlink($tmpFilePath);
-        }
-
-        var_dump($success);
-
-        exit;
-    }
-
-    exit;
-}
+$menu = NavMenu::getMenu('Primary Navigation');
+MenuImporter::importPageHierarchy($pageHierarchy, $menu);
 
 echo "Done";

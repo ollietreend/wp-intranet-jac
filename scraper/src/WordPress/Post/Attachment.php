@@ -2,11 +2,11 @@
 
 namespace Scraper\WordPress\Post;
 
-class Page extends Base {
+class Attachment extends Base {
     /**
      * The WordPress post type which this class represents.
      *
      * @var string
      */
-    protected static $postType = 'page';
+    protected static $postType = 'attachment';
 }

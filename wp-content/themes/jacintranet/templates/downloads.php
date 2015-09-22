@@ -7,10 +7,10 @@
     <ul>
       <?php while (have_rows('file_downloads')): the_row(); ?>
         <?php
-        $file = get_sub_field('file');
-        $url = esc_url($file['url']);
-        $title = esc_html($file['title']);
-        sleep(0);
+        $fileId = get_sub_field('file');
+        $file = get_post($fileId);
+        $url = wp_get_attachment_url($fileId);
+        $title = $file->post_title;
         ?>
         <li>
           <div class="Headline">

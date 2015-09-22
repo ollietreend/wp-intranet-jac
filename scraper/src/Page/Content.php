@@ -116,6 +116,11 @@ class Content {
                     $text = utf8_decode($link->nodeValue);
                     $href = $link->getAttribute('href');
 
+                    // Ignore links which do not begin with "static/" (e.g. and thus belong in the uploads directory)
+                    if (substr($href, 0, 7) !== 'static/') {
+                        continue;
+                    }
+
                     $return[] = [
                         'title' => $text,
                         'relativeUrl' => $href,

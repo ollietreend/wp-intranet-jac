@@ -62,10 +62,14 @@ add_filter('bcn_settings_init', __NAMESPACE__ . '\\bcn_settings_init');
  * "Download 1.77Mb (PDF)"
  */
 class FileDownloadLink {
-  public $file;
+  public $file = null;
 
-  public function __construct($file) {
-    $file['path'] = get_attached_file($file['ID']);
+  public $post = null;
+
+  public function __construct($post) {
+    $file = [];
+    $file['url'] = wp_get_attachment_url($post->ID);
+    $file['path'] = get_attached_file($post->ID);
     $file['filetype'] = wp_check_filetype($file['path']);
     $file['filesize'] = filesize($file['path']);
     $this->file = $file;

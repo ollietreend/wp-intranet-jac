@@ -5,6 +5,7 @@ namespace Scraper\WordPress\Importer;
 use Scraper\Page as ScraperPage;
 use Scraper\WordPress\WordPress;
 use Scraper\WordPress\Post\Page as WpPage;
+use Scraper\WordPress\Post\Attachment as WpAttachment;
 
 class Page extends Base {
     /**
@@ -12,14 +13,14 @@ class Page extends Base {
      * @return int
      * @throws \Exception
      */
-    public function import(ScraperPage $page) {
+    public static function import(ScraperPage $page) {
         $existingPost = WpPage::getByMeta([
             'reddot_import' => 1,
             'reddot_url' => $page->relativeUrl,
         ]);
 
         if ($existingPost) {
-            if ($this->skipExisting) {
+            if (static::$skipExisting) {
                 // Stop processing
                 WordPress::attachWpPageToScraperPage($page, $existingPost);
                 return true;
@@ -29,7 +30,7 @@ class Page extends Base {
             }
         }
 
-        $save = $this->getSaveData($page);
+        $save = static::getSaveData($page);
         $newPost = WpPage::create($save);
         WordPress::attachWpPageToScraperPage($page, $newPost);
         return $newPost;
@@ -42,13 +43,13 @@ class Page extends Base {
      * @return array
      * @throws \Exception
      */
-    private function getSaveData(ScraperPage $page) {
+    private static function getSaveData(ScraperPage $page) {
         return [
             'post_title' => $page->getContent()->getTitle(),
             'post_content' => $page->getContent()->getBody(),
             'post_status' => 'publish',
             'post_type' => 'page',
-            'post_author' => $this->authorId,
+            'post_author' => static::$authorId,
             'post_parent' => 25,
             'meta' => [
                 'reddot_import' => 1,

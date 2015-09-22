@@ -2,16 +2,15 @@
 
 namespace Scraper\WordPress\Importer;
 
-use Scraper\WordPress\Base as WPBase;
 use Scraper\Page as ScraperPage;
 
-class Base extends WPBase {
+class Base {
     /**
      * User ID to use as author of imported posts.
      *
      * @var int
      */
-    public $authorId = null;
+    public static $authorId = null;
 
     /**
      * Whether to skip importing posts which have already been imported.
@@ -19,5 +18,12 @@ class Base extends WPBase {
      *
      * @var bool
      */
-    public $skipExisting = true;
+    public static $skipExisting = true;
+
+    /**
+     * Filesystem path to the base of the import content directory.
+     *
+     * @var string
+     */
+    public static $baseFilePath = null;
 }

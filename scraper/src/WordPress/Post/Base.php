@@ -72,6 +72,27 @@ class Base {
     }
 
     /**
+     * Get ACF custom field for the current post.
+     *
+     * @param string $key
+     * @return mixed|null|void
+     */
+    public function getField($key) {
+        return get_field($key, $this->WP_Post->ID);
+    }
+
+    /**
+     * Save ACF custom field for the current post.
+     *
+     * @param string $key
+     * @param mixed $value
+     * @return bool|int
+     */
+    public function saveField($key, $value) {
+        return update_field($key, $value, $this->WP_Post->ID);
+    }
+
+    /**
      * Update the instance's WP_Post object with the latest version from the WordPress database.
      */
     private function updateWpPostObject() {

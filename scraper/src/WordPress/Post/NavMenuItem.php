@@ -1,12 +1,16 @@
 <?php
 
+/**
+ * Represents a navigation menu item.
+ */
+
 namespace Scraper\WordPress\Post;
 
-class Page extends Base {
+class NavMenuItem extends Base {
     /**
      * The WordPress post type which this class represents.
      *
      * @var string
      */
-    protected static $postType = 'page';
+    protected static $postType = 'nav_menu_item';
 }
