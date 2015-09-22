@@ -227,7 +227,7 @@ html>body #footer                {height:auto; min-height:40px; overflow:hidden;
     float:left;
     display: none;
 }
-.LeftNav ul li.active ul
+.LeftNav ul li.active > ul
 {
     display: block;
 }
