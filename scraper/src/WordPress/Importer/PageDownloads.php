@@ -36,8 +36,8 @@ class PageDownloads extends Base {
 
         $downloads = $page->getContent()->getDownloads();
         foreach ($downloads as $download) {
+            // Check if attachment is already associated with page's ACF file field
             $existingAttachment = self::getExistingAttachment($download, $acfDownloadAttachments);
-
             if ($existingAttachment) {
                 if (static::$skipExisting) {
                     continue;
@@ -46,8 +46,29 @@ class PageDownloads extends Base {
                 }
             }
 
-            $filePath = static::$baseFilePath . $download['relativeUrl'];
-            $mediaId = WordPress::importMedia($filePath, $postId, $download['title']);
+            $mediaMeta = [
+                'reddot_import' => 1,
+                'reddot_url' => $download['relativeUrl'],
+            ];
+            $mediaId = null;
+
+            $existingMedia = WpAttachment::getByMeta($mediaMeta);
+            if ($existingMedia) {
+                // File with same path already exists in the media library
+                if (static::$skipExisting) { // Reuse it
+                    $mediaId = $existingMedia->WP_Post->ID;
+                } else { // Delete it, so it can be re-imported
+                    $existingMedia->delete();
+                    $mediaId = null;
+                }
+            }
+
+            // If we don't have a $mediaId, import the file
+            if (is_null($mediaId)) {
+                $filePath = static::$baseFilePath . $download['relativeUrl'];
+                $mediaId = WordPress::importMedia($filePath, $postId, $download['title'], $mediaMeta);
+            }
+
             $acfDownloads[] = [
                 'file' => $mediaId,
             ];
@@ -111,5 +132,14 @@ class PageDownloads extends Base {
         }
 
         $attachment->delete();
+    }
+
+    private static function fileInMediaLibrary($download) {
+        $existing = WpAttachment::getByMeta([
+            'reddot_import' => 1,
+            'reddot_url' => $download['relativeUrl'],
+        ]);
+
+        return $existing;
     }
 }

@@ -114,7 +114,7 @@ class Content {
 
                 $return = [];
                 foreach ($links as $link) {
-                    $text = utf8_decode($link->nodeValue);
+                    $text = ContentHelper::tidyText(utf8_decode($link->nodeValue));
                     $href = $link->getAttribute('href');
 
                     // Ignore links which do not begin with "static/" (e.g. and thus belong in the uploads directory)

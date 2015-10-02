@@ -4,6 +4,7 @@ namespace Scraper\WordPress;
 
 use Scraper\Page as ScraperPage;
 use Scraper\WordPress\Post\Page;
+use Scraper\WordPress\Post\Attachment;
 
 class WordPress {
     /**
@@ -47,10 +48,11 @@ class WordPress {
      * @param string $filePath Path of file to be imported.
      * @param int $associatedPostId The post ID the media is associated with
      * @param null $title Title for the sideloaded file (optional)
+     * @param array $meta Meta fields to associate with the attachment post (optional)
      * @return int ID of the media library item
      * @throws \Exception
      */
-    public static function importMedia($filePath, $associatedPostId, $title = null) {
+    public static function importMedia($filePath, $associatedPostId, $title = null, $meta = []) {
         if (!file_exists($filePath)) {
             throw new \Exception('Unable to find file for import: ' . $filePath);
         }
@@ -78,6 +80,14 @@ class WordPress {
         // Remove temporary file if it still exists (WordPress would usually move this)
         if (file_exists($tmpFilePath)) {
             unlink($tmpFilePath);
+        }
+
+        // Add meta fields to attachment post
+        if (!empty($meta)) {
+            $attachment = Attachment::getById($success);
+            $attachment->save([
+                'meta' => $meta,
+            ]);
         }
 
         return $success;
