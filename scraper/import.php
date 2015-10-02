@@ -23,6 +23,7 @@ use Scraper\PageHierarchy;
 use Scraper\WordPress\Importer\Base as BaseImporter;
 use Scraper\WordPress\Importer\Page as PageImporter;
 use Scraper\WordPress\Importer\Menu as MenuImporter;
+use Scraper\WordPress\Importer\Post as PostImporter;
 use Scraper\WordPress\Importer\PageDownloads as PageDownloadsImporter;
 use Scraper\WordPress\NavMenu\NavMenu;
 
@@ -65,7 +66,11 @@ echo "Importing pages into WordPress <br/>";
 $pages = $collection->getPages();
 
 foreach ($pages as $page) {
-    if ($page->isFrontPage()) {
+    if (
+        $page->isFrontPage() ||
+        $page->isNewsArchivePage() ||
+        $page->shouldBeImported() == false
+    ) {
         continue;
     }
 
@@ -80,17 +85,23 @@ echo "Importing page hierarchy <br/>";
 $pageHierarchy = new PageHierarchy($navigationStructure, $collection->getPages());
 $pageHierarchy->getHierarchyMap();
 
-foreach ($pages as $page) {
-    if ($page->isFrontPage()) {
+foreach ($collection->getPages() as $page) {
+    if (
+        $page->isFrontPage() ||
+        $page->isNewsArchivePage() ||
+        $page->shouldBeImported() == false ||
+        $page->getWpPost() == false
+    ) {
         continue;
     }
 
     $parentWpPostId = $pageHierarchy->getParentWpPostId($page);
-    if ($page->wpPost->WP_Post->post_parent != $parentWpPostId) {
-        $page->wpPost->save([
+    if ($page->getWpPost()->WP_Post->post_parent != $parentWpPostId) {
+        $page->getWpPost()->save([
             'post_parent' => $parentWpPostId,
         ]);
     }
+
 }
 
 /**
@@ -98,5 +109,20 @@ foreach ($pages as $page) {
  */
 $menu = NavMenu::getMenu('Primary Navigation');
 MenuImporter::importPageHierarchy($pageHierarchy, $menu);
+
+/**
+ * Import news posts.
+ */
+echo "Importing news posts <br/>";
+foreach ($pages as $page) {
+    if (!$page->isFrontPage() && !$page->isNewsArchivePage()) {
+        continue;
+    }
+
+    $stories = $page->getContent()->getNewsPosts();
+    foreach ($stories as $story) {
+        PostImporter::import($story, $page);
+    }
+}
 
 echo "Done";

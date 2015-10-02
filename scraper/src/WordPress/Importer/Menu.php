@@ -24,8 +24,16 @@ class Menu extends Base {
     private static function recursiveImportMenuItems(NavMenu $menu, $menuItems, $parentId = null) {
         foreach ($menuItems as $menuItem) {
             if (isset($menuItem['page'])) {
-                $postId = $menuItem['page']->getWpPost()->WP_Post->ID;
-                $itemId = $menu->addLinkToPost($menuItem['text'], $postId, $parentId);
+                $isValidPage = (
+                    !$menuItem['page']->isFrontPage() &&
+                    !$menuItem['page']->isNewsArchivePage() &&
+                    $menuItem['page']->shouldBeImported()
+                );
+
+                if ($isValidPage) {
+                    $postId = $menuItem['page']->getWpPost()->WP_Post->ID;
+                    $itemId = $menu->addLinkToPost($menuItem['text'], $postId, $parentId);
+                }
             } else {
                 $itemId = $menu->addCustomLink($menuItem['text'], $menuItem['url']);
             }

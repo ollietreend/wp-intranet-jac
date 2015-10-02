@@ -74,6 +74,11 @@ class Page {
         $this->data = $data;
     }
 
+    /**
+     * Return whether this page has download links.
+     *
+     * @return boolean
+     */
     public function hasDownloads() {
         if (is_null($this->properties['hasDownloads'])) {
             $crawler = $this->getCrawler();
@@ -84,6 +89,11 @@ class Page {
         return $this->properties['hasDownloads'];
     }
 
+    /**
+     * Return whether this is the front page/homepage.
+     *
+     * @return boolean
+     */
     public function isFrontPage() {
         if (is_null($this->properties['isFrontPage'])) {
             $this->properties['isFrontPage'] = ( $this->data['title'] == 'Judicial Appointments Commission | index' );
@@ -92,15 +102,40 @@ class Page {
         return $this->properties['isFrontPage'];
     }
 
+    /**
+     * Return whether this is a news archive page.
+     *
+     * @return boolean
+     */
     public function isNewsArchivePage() {
-        // @TODO
-
         if (is_null($this->properties['isNewsArchivePage'])) {
             $crawler = $this->getCrawler();
-            $this->properties['isNewsArchivePage'] = false;
+
+            $newsLink = $crawler->filter('#navitem5 > li > ul > li > ul > li > a.active');
+            if (count($newsLink) == 1 && substr(strtolower($newsLink->text()), 0, 12) == 'news archive') {
+                $return = true;
+            } else {
+                $return = false;
+            }
+
+            $this->properties['isNewsArchivePage'] = $return;
         }
 
         return $this->properties['isNewsArchivePage'];
+    }
+
+    /**
+     * Return whether this page should be imported into WordPress.
+     * Some pages will be ignored and not imported, based on these rules.
+     *
+     * @return boolean
+     */
+    public function shouldBeImported() {
+        return !(
+            // Page should NOT be imported if:
+            stristr($this->getContent()->getTitle(), 'News Archive') !== false || // It has 'News Archive' in the title
+            stristr($this->getContent()->getTitle(), 'On The Spot') !== false // It's an 'On The Spot' page
+        );
     }
 
     /**

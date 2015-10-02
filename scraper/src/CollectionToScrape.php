@@ -120,7 +120,10 @@ class CollectionToScrape {
         // Filter resources to find internal HTML pages
         $results = array_filter($results, function($resource) {
             // If $resource['title'] exists, we know this is a HTML page
-            return ( isset($resource['title']) && $resource['external_link'] == false );
+            $hasTitle = isset($resource['title']);
+            $isInternalPage = !$resource['external_link'];
+            $isNotBaseUrl = !( isset($resource['links_text'][0]) && $resource['links_text'][0] == 'BASE_URL' );
+            return ( $hasTitle && $isInternalPage && $isNotBaseUrl );
         });
 
         $pages = array_map(function($page) {

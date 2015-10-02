@@ -79,16 +79,13 @@ class PageHierarchy {
     }
 
     public function getParentWpPostId(Page $page) {
-        // Ensure each page has a wpPostId assigned.
-        WordPress::attachWpPagesToScraperPages($this->pages);
-
         $hierarchy = $this->getHierarchyMap();
         $parent = $this->findParentInHierarchy($hierarchy, $page);
 
         if (!$parent || !isset($parent['page'])) {
             return null;
         } else {
-            return $parent['page']->wpPostId;
+            return $parent['page']->getWpPost()->WP_Post->ID;
         }
     }
 

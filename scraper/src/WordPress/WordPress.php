@@ -24,7 +24,7 @@ class WordPress {
             ]);
 
             if ($foundPost) {
-                static::attachWpPageToScraperPage($page, $foundPost);
+                $page->setWpPost($foundPost);
             }
         }
     }
