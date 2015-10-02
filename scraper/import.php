@@ -111,7 +111,7 @@ $menu = NavMenu::getMenu('Primary Navigation');
 MenuImporter::importPageHierarchy($pageHierarchy, $menu);
 
 /**
- * Import news posts.
+ * Import news posts
  */
 echo "Importing news posts <br/>";
 foreach ($pages as $page) {
