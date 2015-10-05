@@ -23,4 +23,4 @@ while ($news_posts->have_posts()) {
 wp_reset_postdata();
 
 ?>
-<p>Older news is available in the <a href="#" title="See older posts in the news archive">news archive</a>.</p>
+<p>Older news is available in the <a href="<?php echo get_permalink(get_option('page_for_posts')); ?>" title="See older posts in the news archive">news archive</a>.</p>
