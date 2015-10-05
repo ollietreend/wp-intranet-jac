@@ -22,4 +22,14 @@ class Attachment extends Base {
         $args['post_status'] = 'inherit';
         return parent::getWpQuery($args);
     }
+
+    /**
+     * Get the post URL.
+     * For attachments, we'll return the path to the file rather than the attachment page.
+     *
+     * @return string
+     */
+    public function getUrl() {
+        return \wp_get_attachment_url($this->WP_Post->ID);
+    }
 }

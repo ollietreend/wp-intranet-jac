@@ -72,6 +72,15 @@ class Base {
     }
 
     /**
+     * Get the post URL.
+     *
+     * @return string
+     */
+    public function getUrl() {
+        return apply_filters('the_permalink', get_permalink($this->WP_Post));
+    }
+
+    /**
      * Get ACF custom field for the current post.
      *
      * @param string $key

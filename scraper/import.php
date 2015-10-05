@@ -26,6 +26,9 @@ use Scraper\WordPress\Importer\Menu as MenuImporter;
 use Scraper\WordPress\Importer\Post as PostImporter;
 use Scraper\WordPress\Importer\PageDownloads as PageDownloadsImporter;
 use Scraper\WordPress\NavMenu\NavMenu;
+use Scraper\WordPress\Rewriter\AssetRewriter;
+use Scraper\WordPress\Post\Page as WpPage;
+use Scraper\WordPress\Post\Post as WpPost;
 
 // Configure filesystem cache
 FileSystemCache::$cacheDir = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'cache';
@@ -101,12 +104,12 @@ foreach ($collection->getPages() as $page) {
             'post_parent' => $parentWpPostId,
         ]);
     }
-
 }
 
 /**
  * Import page hierarchy into primary navigation menu
  */
+echo "Adding pages to primary navigation menu <br/>";
 $menu = NavMenu::getMenu('Primary Navigation');
 MenuImporter::importPageHierarchy($pageHierarchy, $menu);
 
@@ -124,5 +127,24 @@ foreach ($pages as $page) {
         PostImporter::import($story, $page);
     }
 }
+
+/**
+ * Rewrite links within page and post content
+ */
+AssetRewriter::$baseUrls = [
+    'http://intranet.justice.gsi.gov.uk/jac/',
+    '/jac/',
+];
+
+echo "Rewriting links and images in pages and posts <br/>";
+$wpPages = WpPage::getAllByMeta([
+    'reddot_import' => 1,
+]);
+AssetRewriter::rewrite($wpPages);
+
+$wpPosts = WpPost::getAllByMeta([
+    'reddot_import' => 1,
+]);
+AssetRewriter::rewrite($wpPosts);
 
 echo "Done";
