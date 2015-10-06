@@ -3,7 +3,7 @@
 <?php
 
 $headerClass = ['page_header'];
-if (have_rows('file_downloads')) {
+if (have_rows('file_downloads') && !is_search()) {
   $headerClass[] = 'mainContent';
 }
 

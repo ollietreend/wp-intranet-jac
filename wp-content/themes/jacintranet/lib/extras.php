@@ -20,6 +20,11 @@ function body_class($classes) {
     $classes[] = 'sidebar-primary';
   }
 
+  // Remove 'search' class because it clashes with a CSS rule
+  if (($idx = array_search('search', $classes)) !== false) {
+    unset($classes[$idx]);
+  }
+
   return $classes;
 }
 add_filter('body_class', __NAMESPACE__ . '\\body_class');
