@@ -8,4 +8,11 @@
   <?php get_template_part('templates/content', 'search'); ?>
 <?php endwhile; ?>
 
-<?php the_posts_navigation(); ?>
+<?php if (isset($wp_query->max_num_pages) && $wp_query->max_num_pages > 1): ?>
+  <div class="pagination pagination-search">
+    <p><strong>More search results</strong></p>
+    <?php echo paginate_links([
+      'show_all' => true,
+    ]); ?>
+  </div>
+<?php endif; ?>

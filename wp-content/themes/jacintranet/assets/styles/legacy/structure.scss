@@ -68,7 +68,11 @@ html>body #PageWrapper        {height:auto; min-height:400px; overflow:hidden;}
     clear: both;
     visibility: hidden;
 }
-#PageContent                     {width:710px; float:right;}
+#PageContent {
+  width: 710px;
+  float: right;
+  padding-bottom: 20px;
+}
 #PageLeft                         {width:230px; margin:0; height:600px;}
 /*\*/html>body #PageLeft        {height:auto; min-height:600px; overflow:hidden;}/**/
 /*Footer*/
@@ -594,4 +598,21 @@ html>body .selectionMini .InnerContent
 .wp-post-image {
   float: left;
   margin: 0 15px 15px 0;
+}
+.entry-content {
+  margin-top: 1em;
+}
+
+/**
+ * Pagination
+ */
+.screen-reader-text {
+  display: none;
+}
+.posts-navigation {
+  .nav-previous,
+  .nav-next {
+    display: inline;
+    margin-right: 1em;
+  }
 }
