@@ -1,16 +1,3 @@
-<?php /*<header class="banner" role="banner">
-  <div class="container">
-    <a class="brand" href="<?= esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
-    <nav role="navigation">
-      <?php
-      if (has_nav_menu('primary_navigation')) :
-        wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav']);
-      endif;
-      ?>
-    </nav>
-  </div>
-</header>*/ ?>
-
 <div id="topnav">
   <?php
 
@@ -37,7 +24,7 @@
   <ul>
     <li><a href="#PageWrapper" accesskey="s">Skip Navigation</a></li>
     <li><a href="<?php echo home_url(); ?>" accesskey="1">Go to the home page</a></li>
-    <li><a href="<?php // @TODO: Link to help page ?>" accesskey="6">Go to the help page</a></li>
-    <li><a href="<?php // @TODO: Link to accessibility statement page ?>" accesskey="0">Go to the accessibility statement page</a></li>
+    <li><a href="/accessibility/" accesskey="6">Go to the help page</a></li>
+    <li><a href="/accessibility/" accesskey="0">Go to the accessibility statement page</a></li>
   </ul>
 </div>
