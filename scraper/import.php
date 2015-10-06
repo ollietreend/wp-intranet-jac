@@ -147,4 +147,23 @@ $wpPosts = WpPost::getAllByMeta([
 ]);
 AssetRewriter::rewrite($wpPosts);
 
+/**
+ * Replace People Finder form with shortcode.
+ */
+echo "Replacing People Finder form with shortcode <br/>";
+$peopleFinderPage = WpPage::getByMeta([
+    'reddot_import' => 1,
+    'reddot_url' => '853.htm',
+]);
+if ($peopleFinderPage) {
+    $content = $peopleFinderPage->WP_Post->post_content;
+    $pattern = '/<form id="finder"[\S\s]*?<\/form>/i';
+    if (preg_match($pattern, $content)) {
+        $content = preg_replace('/<form id="finder"[\S\s]*?<\/form>/i', '[people_finder_form]', $content);
+        $peopleFinderPage->save([
+            'post_content' => $content,
+        ]);
+    }
+}
+
 echo "Done";
