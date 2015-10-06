@@ -62,10 +62,14 @@ add_filter('bcn_settings_init', __NAMESPACE__ . '\\bcn_settings_init');
  * "Download 1.77Mb (PDF)"
  */
 class FileDownloadLink {
-  public $file;
+  public $file = null;
 
-  public function __construct($file) {
-    $file['path'] = get_attached_file($file['ID']);
+  public $post = null;
+
+  public function __construct($post) {
+    $file = [];
+    $file['url'] = wp_get_attachment_url($post->ID);
+    $file['path'] = get_attached_file($post->ID);
     $file['filetype'] = wp_check_filetype($file['path']);
     $file['filesize'] = filesize($file['path']);
     $this->file = $file;
@@ -97,3 +101,19 @@ function get_the_archive_title($title) {
   return preg_replace('/^(Month|Year):/', 'News Archive:', $title);
 }
 add_filter('get_the_archive_title', __NAMESPACE__ . '\\get_the_archive_title');
+
+/**
+ * Re-enable content editor when editing posts page.
+ * Disabled by default by WordPress, because it assumes this page won't need content.
+ *
+ * @param \WP_Post $post
+ */
+function edit_form_after_title($post) {
+  global $post_type;
+
+  if ($post->ID == get_option('page_for_posts')) {
+    remove_action('edit_form_after_title', '_wp_posts_page_notice');
+    add_post_type_support($post_type, 'editor');
+  }
+}
+add_action('edit_form_after_title', __NAMESPACE__ . '\\edit_form_after_title', 5);
