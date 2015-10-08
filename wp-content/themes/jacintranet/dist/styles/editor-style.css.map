@@ -1,0 +1,1 @@
+{"version":3,"sources":["../assets/styles/editor-style.scss"],"names":[],"mappings":"AAAA,KACE,OAAA,eACA,YAAA,MAAA,QAAA,UAAA,WACA,UAAA","file":"editor-style.css","sourcesContent":["body {\n  margin: 12px !important;\n  font-family: Arial, verdana, Helvetica, sans-serif;\n  font-size: 12px;\n}\n"],"sourceRoot":"assets/styles/"}
