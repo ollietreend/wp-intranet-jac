@@ -20,6 +20,7 @@ function widgets_init() {
   unregister_widget('WP_Widget_Recent_Comments');
   unregister_widget('WP_Widget_RSS');
   unregister_widget('WP_Widget_Tag_Cloud');
+  unregister_widget('bcn_widget');
 }
 add_action('widgets_init', __NAMESPACE__ . '\\widgets_init');
 
