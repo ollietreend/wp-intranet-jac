@@ -1,6 +1,6 @@
 <div <?php post_class(); ?>>
   <div class="post_header">
-    <strong class="entry-title"><?php the_title(); ?></strong> &ndash;
+    <strong class="entry-title"><?php the_title(); ?></strong>
     <time datetime="<?= get_post_time('c', true); ?>" class="post_date" title="<?php the_time(get_option('date_format')); ?>"><?php the_time('j M'); ?></time>
   </div>
   <div class="post_content">
