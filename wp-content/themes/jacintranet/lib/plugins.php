@@ -47,6 +47,12 @@ function jacintranet_register_required_plugins() {
       'required'    => false,
     ),
 
+    array(
+      'name'        => 'Google Analytics Dashboard for WP',
+      'slug'        => 'google-analytics-dashboard-for-wp',
+      'required'    => false,
+    ),
+
   );
 
   /*
