@@ -3,7 +3,7 @@
 /**
  * Configure MOJ Digital user roles.
  * This renames the 'Administrator' role to 'Webmaster',
- * and creates a new role 'Administrator' which extends Editor role adding support for:
+ * and creates a new role 'Web Administrator' which extends Editor role adding support for:
  *   – managing navigation menus
  *   – managing users
  *
@@ -116,7 +116,6 @@ class MOJ_User_Roles {
    */
   function actionAdminMenu() {
     if (current_user_can('web-administrator')) {
-      remove_submenu_page('themes.php', 'widgets.php');
       remove_submenu_page('themes.php', 'themes.php');
     }
   }
@@ -125,9 +124,10 @@ class MOJ_User_Roles {
    * Remove widgets panel from Theme Customiser when logged in as a web-administrator
    */
   function actionCustomizeRegister($wp_customize) {
-    if (current_user_can('web-administrator')) {
-      $wp_customize->remove_panel('widgets');
-    }
+    /**
+     * Currently unused. But if required in the future, you'll want to do something like this:
+     * $wp_customize->remove_panel('widgets');
+     */
   }
 
   /**
