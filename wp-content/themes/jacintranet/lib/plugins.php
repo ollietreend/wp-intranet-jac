@@ -41,6 +41,12 @@ function jacintranet_register_required_plugins() {
       'required'    => true,
     ),
 
+    array(
+      'name'        => 'TinyMCE Advanced',
+      'slug'        => 'tinymce-advanced',
+      'required'    => false,
+    ),
+
   );
 
   /*
