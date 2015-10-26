@@ -4,6 +4,9 @@
 // bower:scss
 // endbower
 
+// Import components from roots sage theme
+@import "components/wp-classes";
+
 // Import legacy stylesheets from RedDot migration
 @import "legacy/basic";
 @import "legacy/structure";
