@@ -1,0 +1,285 @@
+/*Home Page Structure Only*/
+#PageWrapper
+{
+        width:710px;
+        float:left;
+        margin-top:30px;
+}
+html>body #PageWrapper        {height:auto; min-height:400px; overflow:hidden;}
+#PageWrapper:after
+{
+     /* this is for NN6 to clear floats */
+        content: ".";
+        display: block;
+        height: 0px;
+        clear: both;
+        visibility: hidden;
+}
+#PageContent
+{
+        width:470px; float:right; }
+#PageRight
+{
+    width:230px; float:right; height:600px; margin:30px 0 0 0;
+}
+/*\*/html>body #PageRight        {height:auto; min-height:600px; overflow:hidden;}/**/
+
+#banner h1
+{
+    font-size:0.1em;
+    color:#fff;
+    position:absolute;
+    top:-999em;
+}
+
+/*----------------------------------------- Home Central column CSS --------------------------------------*/
+/*-------------------------- Top rotating Candidate promotion -------------------------*/
+.CandidatePromotion
+{
+    background-color:#7B497D;
+    color:#fff;
+    height:140px;
+    margin-bottom:20px;
+}
+html>body .CandidatePromotion
+{
+    height:auto; min-height:140px; overflow:hidden
+}
+.CandidatePromotion .Inner
+{
+    background-color:#7B497D;
+    float:right;
+    width:248px;
+}
+.CandidatePromotion .InnerContent
+{
+    height:114px;
+}
+html>body .CandidatePromotion .InnerContent
+{
+    height:auto; min-height:114px; overflow:hidden;
+}
+.CandidatePromotion img
+{
+    float:left;
+}
+.CandidatePromotion h2
+{
+    margin:0 0 5px 0;
+    padding:5px 10px 0 10px;
+    color:#fff;
+}
+.CandidatePromotion h3
+{
+    font-size:0.9em;
+    color:#fff;
+}
+.CandidatePromotion h3, .CandidatePromotion p
+{
+    padding:0 10px 0 10px;
+}
+.CandidatePromotion p
+{
+    margin:6px 0 5px 0;
+}
+#PromotionWrapper .Anchor
+{
+    margin:0;
+    padding:0;
+    display:inline;
+}
+#PromotionWrapper .Anchor a
+{
+    display:block;
+    padding:6px 35px 5px 10px;
+    text-decoration:none;
+    text-align:right;
+    background: #5A1B5C url(../../assets/images/images-structure/ReadMoreArrow.gif) 96% 50% no-repeat;
+}
+#PromotionWrapper .Anchor a span
+{
+    position:absolute; top:-999em;
+}
+.CandidatePromotion a, .CandidatePromotion a:hover, .CandidatePromotion a:visited
+{
+    color:#fff;
+}
+#PromotionWrapper
+{
+    position:relative;
+    background-color:#006699;
+}
+.Hide
+{
+    position:absolute;
+    bottom:0;
+    top:0;
+    z-index:10;
+}
+.Show
+{
+    position:relative;
+    z-index:1000;
+}
+/*-------------------------- 3 Selection exercise panels -------------------------*/
+
+.SelectionExerciseHome
+{
+    margin-top:20px;
+}
+.SelectionExerciseHome h2
+{
+    background-color:#E4E4E4;
+    margin:0;
+}
+.SelectionExerciseHome h2 a
+{
+    color:#734075;
+    padding:5px 0 5px 10px;
+    text-decoration:none;
+    display:block;
+    background:url(../../assets/images/images-structure/SelectionHomeArrow.gif) 98% 50% no-repeat;
+}
+.SelectionExerciseHome p
+{
+    border:1px solid #E4E4E4;
+    padding:5px 0 10px 10px;
+}
+.SelectionExerciseHome ul
+{
+    list-style:none;
+    margin:0 0 20px 0;
+    padding:0;
+    border:1px solid #E4E4E4;
+    height:50px;
+}
+html>body .SelectionExerciseHome ul
+{
+    height:auto; min-height:50px; overflow:hidden;
+}
+.SelectionExerciseHome ul li
+{
+    list-style:none;
+    margin:6px 0 6px 10px;
+    padding:0;
+    clear:both;
+    line-height:1.5em;
+}
+.SelectionExerciseHome ul li a, .SelectionExerciseHome ul li a:hover, .SelectionExerciseHome ul li a:visited
+{
+    color:#333333;
+    font-weight:bold;
+}
+.SelectionExerciseHome ul li p
+{
+    margin:0;
+    padding:0;
+    display:inline;
+    border:0;
+}
+
+.SelectionExerciseHome ul li div
+{
+    float:left;
+    width:260px;
+    padding:0 10px 0 0;
+    margin:0 0 5px 0;
+}
+/**html .SelectionExerciseHome ul li div
+{
+    w\idth:255px;
+}*/
+
+.SelectionExerciseHome ul li.Item1,
+//..SelectionExerciseHome ul li.Item2,
+.SelectionExerciseHome ul li.Item3,
+.SelectionExerciseHome ul li.Item4,
+.SelectionExerciseHome ul li.Item5,
+.SelectionExerciseHome ul li.Item6
+
+{
+    clear:both;
+}
+.SelectionExerciseHome ul li.Item1 a,
+.SelectionExerciseHome ul li.Item2 a,
+.SelectionExerciseHome ul li.Item3 a,
+.SelectionExerciseHome ul li.Item4 a,
+.SelectionExerciseHome ul li.Item5 a,
+.SelectionExerciseHome ul li.Item6 a
+{
+    display:block;
+    float:left;
+}
+.SelectionExerciseHome ul li.Item1 p,
+.SelectionExerciseHome ul li.Item2 p,
+.SelectionExerciseHome ul li.Item3 p,
+.SelectionExerciseHome ul li.Item4 p,
+.SelectionExerciseHome ul li.Item5 p,
+.SelectionExerciseHome ul li.Item6 p
+
+{
+    display:block;
+    margin:0;
+    width:41%;
+    float:right;
+    padding:2px 0 5px 0;
+}
+.SelectionExerciseHome ul li.Item1 p
+{
+    background:url(../../assets/images/images-structure/Item1.gif) 96% 50% no-repeat;
+}
+.SelectionExerciseHome ul li.Item2 p
+{
+    background:url(../../assets/images/images-structure/Item2.gif) 96% 50% no-repeat;
+}
+.SelectionExerciseHome ul li.Item6 p
+{
+    background:url(../../assets/images/images-structure/Item3.gif) 96% 50% no-repeat;
+}
+.SelectionExerciseHome ul li.Item4 p
+{
+    background:url(../../assets/images/images-structure/Item4.gif) 95% 50% no-repeat;
+}
+.SelectionExerciseHome ul li.Item5 p
+{
+    background:url(../../assets/images/images-structure/Item5.gif) 95% 50% no-repeat;
+}
+.SelectionExerciseHome ul li.Item3 p
+{
+    background:url(../../assets/images/images-structure/Item6.gif) 95% 50% no-repeat;
+}
+
+/*------------------ CSS for Forthcoming selection exercises - Register your intest link/icon ------------------*/
+.SelectionExerciseHome ul li p a
+{
+    display:block;
+    background:url(../../assets/images/images-structure/RegisterInterestIcon.gif) no-repeat;
+    height:16px;
+    width:26px;
+    float:right;
+    margin:-17px 5px 0 0px;
+}
+.SelectionExerciseHome ul li p a span
+{
+    position:absolute; left:-2000px;
+}
+
+/*----------------View all------------------------*/
+
+.SelectionExerciseHome ul li.SelRight
+{
+    float:right; padding-right:10px;
+}
+.SelectionExerciseHome ul li.SelRight a
+{
+    color:#5A075C;
+}
+
+
+/*----------------------------------------- Home right column CSS - overriding global styles --------------------------------------*/
+
+.GenericRight
+{
+    margin:0 0 25px 10px;
+    float:none;
+}

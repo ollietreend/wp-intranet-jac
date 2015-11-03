@@ -1,0 +1,188 @@
+.SelectionDetail
+{
+    border-bottom:1px solid #ccc;
+    margin:15px 0 15px 0;
+    padding:0 0 10px 0;
+    width:67%;
+}
+/*----------------------------------------- Home right column CSS --------------------------------------*/
+.PanelsRight
+{
+    float:right;
+}
+.GenericRight
+{
+    border:1px solid #DADADA;
+    width:202px;
+    margin:0 0 25px 20px;
+    height:110px;
+    padding:0 0 0 0;
+
+}
+html>body .GenericRight
+{
+    height:auto; min-height:0px; overflow:hidden;
+}
+.GenericRight h2
+{
+    margin:5px 0 5px 8px;
+    padding:0;
+    font-size:1.1em;
+}
+.GenericRight h2 a
+{
+    text-decoration:none;
+}
+.GenericRight ul
+{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+.GenericRight ul li
+{
+    margin:5px 0 10px 0;
+    padding:0;
+    clear:right;
+}
+.GenericRight ul li a
+{
+    text-decoration:underline;
+    font-weight:bold;
+    color:#333333;
+}
+.GenericRight ul li a span
+{
+    position:absolute;
+    top:-999em;
+}
+.GenericRight p
+{
+    background:url(../../assets/images/images-structure/RightBullet.gif) 0px 4px no-repeat;
+    padding:0 0 0 12px;
+    margin:0 5px 0 8px;
+}
+.GenericRight .Link
+{
+    float:right;
+    margin:5px 5px 5px 0;
+    font-weight:bold;
+    color:#333333;
+}
+.GenericRight .Link a
+{
+    color:#333333;
+}
+.GenericRight .Link a span
+{
+    position:absolute; top:-999em;
+}
+.GenericRight ul li p
+{
+    background:none;
+}
+.GenericRight .Headline
+{
+    margin:0 0 0 8px;
+    padding:0 0 0 12px;
+    font-weight:bold;
+    background:url(../../assets/images/images-structure/RightBullet.gif) 0px 4px no-repeat;
+}
+.GenericRight img {
+  display: block;
+}
+.file_download_link {
+  float: right;
+  padding: 4px 3px 10px 0;
+  margin-right: 3px;
+  font-size: 0.9em;
+}
+.file_download_link a {
+  display:block;
+}
+.IconPDF
+{
+    background:url(../../assets/images/images-structure/PDFicon.gif) no-repeat;
+}
+.IconDOC
+{
+    background:url(../../assets/images/images-structure/DOCIcon.gif) no-repeat;
+}
+.IconXLS
+{
+    background:url(../../assets/images/images-structure/XLSicon.gif) no-repeat;
+}
+.IconPDF a, .IconDOC a, .IconXLS a,
+{
+    padding:0 0 0 25px;
+}
+
+/*Listings page*/
+.selectionListings
+{
+    float:left;
+    margin:0;
+    padding:0;
+}
+.selectionListings h2
+{
+    margin:0;
+    padding:0 0 3px 0;
+    font-size:1.2em
+}
+.selectionListings h3
+{
+    margin:0;
+    padding:0 0 5px 0;
+    color:#000;
+}
+.selectionListings .more
+{
+    float:right;
+    background:url(../../assets/images/images-structure/breadcrumb_chevron.gif) no-repeat 100% 30%;
+    padding-right:20px
+}
+.selectionListings .more a
+{
+    text-decoration:none;
+}
+.selectionListings .more a span
+{
+    position:absolute;
+    top:-999em;
+}
+.selectionListings .more a:hover
+{
+    text-decoration:underline;
+}
+
+/*Sitemap*/
+#sitemap
+{
+    margin:0;
+    padding:0;
+}
+#sitemap ul
+{
+    margin:0; padding:0; list-style-type:none
+}
+#sitemap ul li
+{
+    margin:3px 0 3px 10px; padding:0;
+}
+#sitemap ul ul
+{
+    margin:3px 0 3px 20px;
+}
+#sitemap ul ul ul
+{
+    margin:3px 0 3px 25px;
+}
+
+/*Media Player Style*/
+.VideoPanel
+{
+    border:1px solid #ccc;
+    width:340px;
+    margin:10px 0 10px 0;
+}

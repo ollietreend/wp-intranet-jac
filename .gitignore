@@ -12,6 +12,7 @@ wp-config.php
 wp-content/uploads/
 wp-content/blogs.dir/
 wp-content/upgrade/*
+wp-content/languages/*
 wp-content/backup-db/*
 wp-content/advanced-cache.php
 wp-content/wp-cache-config.php
@@ -59,15 +60,8 @@ wp-content/mysql.sql
 /wp-admin
 /wp-includes
 /wp-content/index.php
-/wp-content/themes/twentyten
-/wp-content/themes/twentyeleven
-/wp-content/themes/twentytwelve
-/wp-content/themes/twentythirteen
-/wp-content/themes/twentyfourteen
-/wp-content/themes/twentyfifteen
-/wp-content/themes/twentysixteen
-/wp-content/themes/index.php
-/wp-content/plugins/index.php
+/wp-content/themes/*
+/wp-content/plugins/*
 
 # large/disallowed file types
 # a CDN should be used for these
@@ -103,3 +97,6 @@ wp-content/mysql.sql
 *.asf
 *.wmv
 *.avi
+
+# project files
+!/wp-content/themes/jacintranet

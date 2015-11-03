@@ -1,0 +1,15 @@
+// Automatically injected Bower dependencies via wiredep (never manually edit this block)
+// bower:scss
+// endbower
+
+// Import components from roots sage theme
+@import "components/wp-classes";
+
+// Import legacy stylesheets from RedDot migration
+@import "legacy/basic";
+@import "legacy/structure";
+@import "legacy/globalstyles";
+body.home {
+  // This stylesheet only applies to the homepage
+  @import "legacy/home";
+}
