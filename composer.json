@@ -50,7 +50,7 @@
     "roots/wp-password-bcrypt": "1.0.0",
     "ministryofjustice/wp-rewrite-media-to-s3": "^0.1.0",
     "wpackagist-plugin/google-analytics-dashboard-for-wp": "4.9.6.2",
-    "acf/acfpro": "^5",
+    "acf/advanced-custom-fields-pro": "^5",
     "wpackagist-plugin/breadcrumb-navxt": "^5.6",
     "wpackagist-plugin/simple-image-widget": "^4.4",
     "wpackagist-plugin/tinymce-advanced": "^4.4",
