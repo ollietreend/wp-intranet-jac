@@ -34,4 +34,9 @@ npm install && bower install
 gulp --production
 
 # Remove node_modules and bower_components to (drastically) reduce image size
-rm -Rf node_modules bower_components auth.json
+rm -Rf node_modules bower_components
+
+cd ../../../..
+
+# Remove composer auth.json
+rm -f auth.json
