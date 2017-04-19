@@ -31,6 +31,6 @@
     }
   },
   "config": {
-    "devUrl": "http://jacintranet.dev"
+    "devUrl": "http://jacintranet.docker"
   }
 }
