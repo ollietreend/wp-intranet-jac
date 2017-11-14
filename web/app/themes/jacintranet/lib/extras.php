@@ -122,20 +122,3 @@ function edit_form_after_title($post) {
   }
 }
 add_action('edit_form_after_title', __NAMESPACE__ . '\\edit_form_after_title', 5);
-
-/**
- * For plugin: Google Analytics Dashboard for WP
- * Move Google Analytics tracking snippet to the footer
- * if jQuery/JS has been moved to the footer.
- * This resolves a dependency that the snippet has on jQuery.
- */
-function move_google_analytics_to_footer() {
-  $jqueryInFooter = ( get_theme_support('soil-js-to-footer') || get_theme_support('soil-jquery-cdn') );
-  $gadwpExists = function_exists('GADWP');
-
-  if (!is_admin() && $jqueryInFooter && $gadwpExists) {
-    remove_action('wp_head', array(GADWP()->tracking, 'tracking_code'), 99);
-    add_action('wp_footer', array(GADWP()->tracking, 'tracking_code'), 99);
-  }
-}
-add_action('init', __NAMESPACE__ . '\\move_google_analytics_to_footer');
