@@ -54,6 +54,7 @@
     "wpackagist-plugin/breadcrumb-navxt": "*",
     "wpackagist-plugin/simple-image-widget": "*",
     "wpackagist-plugin/tinymce-advanced": "*",
+    "wpackagist-plugin/classic-editor": "*",
     "roots/soil": "^3.7"
   },
   "require-dev": {
