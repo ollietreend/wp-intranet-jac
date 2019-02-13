@@ -8,12 +8,12 @@
     "packages": [
         {
             "name": "acf/advanced-custom-fields-pro",
-            "version": "5.7.10",
+            "version": "5.7.11",
             "dist": {
                 "type": "zip",
-                "url": "https://composer.wp.dsd.io/dist/acf/advanced-custom-fields-pro/acf-advanced-custom-fields-pro-5.7.10.zip",
+                "url": "https://composer.wp.dsd.io/dist/acf/advanced-custom-fields-pro/acf-advanced-custom-fields-pro-5.7.11.zip",
                 "reference": null,
-                "shasum": "ee844bbfe638d15403a159af47c77dcc1df05ea3"
+                "shasum": "d01e265cd643da016688e6ee6b01d62b45728ec3"
             },
             "type": "wordpress-plugin"
         },
