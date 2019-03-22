@@ -13,10 +13,10 @@ web/app/languages
 web/app/uploads/*
 !web/app/uploads/.gitkeep
 
-/web/app/themes/jacintranet/meta/
-/web/app/themes/jacintranet/node_modules/
-/web/app/themes/jacintranet/dist*
-/web/app/themes/jacintranet/dist/
+web/app/themes/jacintranet/meta/
+web/app/themes/jacintranet/node_modules/
+web/app/themes/jacintranet/dist*
+web/app/themes/jacintranet/dist/
 
 # WordPress
 web/wp
