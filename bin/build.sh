@@ -27,7 +27,7 @@ composer install
 # Build theme assets here
 cd web/app/themes/jacintranet
 npm install
-npm run dev
+npm run production
 rm -rf node_modules
 cd ../../../..
 
