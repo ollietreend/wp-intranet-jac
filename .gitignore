@@ -1,5 +1,6 @@
 # Editors
-.idea*
+.idea/
+.DS_*
 
 # Application
 web/app/debug.log
@@ -15,7 +16,7 @@ web/app/uploads/*
 
 web/app/themes/jacintranet/meta/
 web/app/themes/jacintranet/node_modules/
-web/app/themes/jacintranet/dist/
+web/app/themes/jacintranet/dist/*
 
 # WordPress
 web/wp
@@ -29,3 +30,6 @@ web/.htaccess
 # Composer
 vendor/*
 !vendor/.gitkeep
+
+# DB
+*.sql

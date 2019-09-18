@@ -55,6 +55,7 @@
     "wpackagist-plugin/simple-image-widget": "*",
     "wpackagist-plugin/tinymce-advanced": "*",
     "wpackagist-plugin/classic-editor": "*",
+    "ministryofjustice/wp-moj-components": "*",
     "roots/soil": "^3.7"
   },
   "require-dev": {
