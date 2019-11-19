@@ -53,8 +53,10 @@
     "acf/advanced-custom-fields-pro": "*",
     "wpackagist-plugin/breadcrumb-navxt": "*",
     "wpackagist-plugin/simple-image-widget": "*",
+    "wpackagist-plugin/fast-user-switching": "*",
     "wpackagist-plugin/tinymce-advanced": "*",
     "wpackagist-plugin/classic-editor": "*",
+    "ministryofjustice/wp-user-roles": "*",
     "ministryofjustice/wp-moj-components": "*",
     "roots/soil": "^3.7"
   },
@@ -63,7 +65,7 @@
   },
   "extra": {
     "installer-paths": {
-      "web/app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+      "web/app/mu-plugins/{$name}/": ["type:wordpress-muplugin", "ministryofjustice/wp-user-roles"],
       "web/app/plugins/{$name}/": ["type:wordpress-plugin"],
       "web/app/themes/{$name}/": ["type:wordpress-theme"]
     },

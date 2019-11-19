@@ -5,7 +5,6 @@ namespace Roots\Sage\Init;
 use Roots\Sage\Assets;
 
 require 'classes/leftnav-walker.php';
-require 'classes/moj-user-roles.php';
 
 /**
  * Theme setup
@@ -74,11 +73,6 @@ function unregister_categories_and_tags() {
   register_taxonomy('post_tag', array());
 }
 add_action('init', __NAMESPACE__ . '\\unregister_categories_and_tags');
-
-/**
- * Define user roles
- */
-new \MOJ_User_Roles();
 
 /**
  * Remove Comments functionality
