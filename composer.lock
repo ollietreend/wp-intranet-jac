@@ -8,12 +8,11 @@
     "packages": [
         {
             "name": "acf/advanced-custom-fields-pro",
-            "version": "5.8.1",
+            "version": "5.8.7",
             "dist": {
                 "type": "zip",
-                "url": "https://composer.wp.dsd.io/dist/acf/advanced-custom-fields-pro/acf-advanced-custom-fields-pro-5.8.1.zip",
-                "reference": null,
-                "shasum": "1ba6174e31db0d3c2728d7bd5258c621d8eb9391"
+                "url": "https://composer.wp.dsd.io/dist/acf/advanced-custom-fields-pro/acf-advanced-custom-fields-pro-5.8.7.zip",
+                "shasum": "fda8da676a1af2211229f8b9d02a5c2bbee197fb"
             },
             "type": "wordpress-plugin"
         },
@@ -126,20 +125,20 @@
         },
         {
             "name": "johnpbloch/wordpress",
-            "version": "5.3.0",
+            "version": "5.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress.git",
-                "reference": "2b710cf99daf1c219948cd6ee4719ccfbd12e109"
+                "reference": "a463d27a25d317c270e93f7259e2b138287bf8c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/2b710cf99daf1c219948cd6ee4719ccfbd12e109",
-                "reference": "2b710cf99daf1c219948cd6ee4719ccfbd12e109",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/a463d27a25d317c270e93f7259e2b138287bf8c4",
+                "reference": "a463d27a25d317c270e93f7259e2b138287bf8c4",
                 "shasum": ""
             },
             "require": {
-                "johnpbloch/wordpress-core": "5.3.0",
+                "johnpbloch/wordpress-core": "5.3.2",
                 "johnpbloch/wordpress-core-installer": "^1.0",
                 "php": ">=5.6.20"
             },
@@ -161,27 +160,27 @@
                 "cms",
                 "wordpress"
             ],
-            "time": "2019-11-12T20:45:58+00:00"
+            "time": "2019-12-18T22:32:20+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core",
-            "version": "5.3.0",
+            "version": "5.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress-core.git",
-                "reference": "17ddddaf049e82655c6d3831ca787350807b0566"
+                "reference": "a282ab0051fac21d4e0cdd828519e6739743ba92"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/17ddddaf049e82655c6d3831ca787350807b0566",
-                "reference": "17ddddaf049e82655c6d3831ca787350807b0566",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/a282ab0051fac21d4e0cdd828519e6739743ba92",
+                "reference": "a282ab0051fac21d4e0cdd828519e6739743ba92",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.20"
             },
             "provide": {
-                "wordpress/core-implementation": "5.3.0"
+                "wordpress/core-implementation": "5.3.2"
             },
             "type": "wordpress-core",
             "notification-url": "https://packagist.org/downloads/",
@@ -201,7 +200,7 @@
                 "cms",
                 "wordpress"
             ],
-            "time": "2019-11-12T20:45:53+00:00"
+            "time": "2019-12-18T22:32:15+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
@@ -254,12 +253,10 @@
         },
         {
             "name": "koodimonni-language/core-en_gb",
-            "version": "5.3",
+            "version": "5.3.2",
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/translation/core/5.3/en_GB.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://downloads.wordpress.org/translation/core/5.3.2/en_GB.zip"
             },
             "require": {
                 "koodimonni/composer-dropin-installer": ">=0.2.3"
@@ -483,16 +480,16 @@
         },
         {
             "name": "roots/soil",
-            "version": "3.8.1",
+            "version": "3.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/roots/soil.git",
-                "reference": "7920eb22bb434c1b86ff3d4d7dc318498de0c675"
+                "reference": "63dcd6e1754a4c806ce3d3077b44d908c58b374e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/roots/soil/zipball/7920eb22bb434c1b86ff3d4d7dc318498de0c675",
-                "reference": "7920eb22bb434c1b86ff3d4d7dc318498de0c675",
+                "url": "https://api.github.com/repos/roots/soil/zipball/63dcd6e1754a4c806ce3d3077b44d908c58b374e",
+                "reference": "63dcd6e1754a4c806ce3d3077b44d908c58b374e",
                 "shasum": ""
             },
             "require": {
@@ -509,14 +506,14 @@
             ],
             "authors": [
                 {
-                    "name": "Scott Walkinshaw",
-                    "email": "scott.walkinshaw@gmail.com",
-                    "homepage": "https://github.com/swalkinshaw"
-                },
-                {
                     "name": "Ben Word",
                     "email": "ben@benword.com",
                     "homepage": "https://github.com/retlehs"
+                },
+                {
+                    "name": "Scott Walkinshaw",
+                    "email": "scott.walkinshaw@gmail.com",
+                    "homepage": "https://github.com/swalkinshaw"
                 }
             ],
             "description": "A WordPress plugin which contains a collection of modules to apply theme-agnostic front-end modifications",
@@ -524,7 +521,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2019-05-23T21:45:50+00:00"
+            "time": "2019-12-07T22:25:02+00:00"
         },
         {
             "name": "roots/wp-password-bcrypt",
@@ -585,16 +582,16 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.12.0",
+            "version": "v1.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "550ebaac289296ce228a706d0867afc34687e3f4"
+                "reference": "f8f0b461be3385e56d6de3dbb5a0df24c0c275e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/550ebaac289296ce228a706d0867afc34687e3f4",
-                "reference": "550ebaac289296ce228a706d0867afc34687e3f4",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/f8f0b461be3385e56d6de3dbb5a0df24c0c275e3",
+                "reference": "f8f0b461be3385e56d6de3dbb5a0df24c0c275e3",
                 "shasum": ""
             },
             "require": {
@@ -606,7 +603,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.12-dev"
+                    "dev-master": "1.13-dev"
                 }
             },
             "autoload": {
@@ -639,7 +636,7 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2019-08-06T08:03:45+00:00"
+            "time": "2019-11-27T13:56:44+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -694,17 +691,15 @@
         },
         {
             "name": "wpackagist-plugin/breadcrumb-navxt",
-            "version": "6.3.0",
+            "version": "6.4.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/breadcrumb-navxt/",
-                "reference": "tags/6.3.0"
+                "reference": "tags/6.4.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/breadcrumb-navxt.6.3.0.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://downloads.wordpress.org/plugin/breadcrumb-navxt.6.4.0.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -722,9 +717,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/classic-editor.1.5.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://downloads.wordpress.org/plugin/classic-editor.1.5.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -742,9 +735,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/fast-user-switching.zip?timestamp=1551360022",
-                "reference": null,
-                "shasum": null
+                "url": "https://downloads.wordpress.org/plugin/fast-user-switching.zip?timestamp=1551360022"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -754,17 +745,15 @@
         },
         {
             "name": "wpackagist-plugin/google-analytics-dashboard-for-wp",
-            "version": "5.3.9",
+            "version": "5.3.10",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/google-analytics-dashboard-for-wp/",
-                "reference": "tags/5.3.9"
+                "reference": "tags/5.3.10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/google-analytics-dashboard-for-wp.5.3.9.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://downloads.wordpress.org/plugin/google-analytics-dashboard-for-wp.5.3.10.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -782,9 +771,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/simple-image-widget.4.4.2.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://downloads.wordpress.org/plugin/simple-image-widget.4.4.2.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -802,9 +789,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/tinymce-advanced.zip?timestamp=1573608418",
-                "reference": null,
-                "shasum": null
+                "url": "https://downloads.wordpress.org/plugin/tinymce-advanced.zip?timestamp=1573608418"
             },
             "require": {
                 "composer/installers": "~1.0"
