@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1689abb3d3760a5b7911bc120915a610",
+    "content-hash": "f669686e68013579411f4b074b2135f3",
     "packages": [
         {
             "name": "acf/advanced-custom-fields-pro",
@@ -690,6 +690,24 @@
             "time": "2019-01-29T11:11:52+00:00"
         },
         {
+            "name": "wpackagist-plugin/analytify-analytics-dashboard-widget",
+            "version": "1.1.2",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/analytify-analytics-dashboard-widget/",
+                "reference": "tags/1.1.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/analytify-analytics-dashboard-widget.1.1.2.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/analytify-analytics-dashboard-widget/"
+        },
+        {
             "name": "wpackagist-plugin/breadcrumb-navxt",
             "version": "6.4.0",
             "source": {
@@ -744,24 +762,6 @@
             "homepage": "https://wordpress.org/plugins/fast-user-switching/"
         },
         {
-            "name": "wpackagist-plugin/google-analytics-dashboard-for-wp",
-            "version": "6.0.1",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/google-analytics-dashboard-for-wp/",
-                "reference": "tags/6.0.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/google-analytics-dashboard-for-wp.6.0.1.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/google-analytics-dashboard-for-wp/"
-        },
-        {
             "name": "wpackagist-plugin/simple-image-widget",
             "version": "4.4.2",
             "source": {
@@ -789,13 +789,31 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/tinymce-advanced.zip?timestamp=1573608418"
+                "url": "https://downloads.wordpress.org/plugin/tinymce-advanced.zip?timestamp=1583309330"
             },
             "require": {
                 "composer/installers": "~1.0"
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/tinymce-advanced/"
+        },
+        {
+            "name": "wpackagist-plugin/wp-analytify",
+            "version": "3.0.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wp-analytify/",
+                "reference": "tags/3.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wp-analytify.3.0.0.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wp-analytify/"
         }
     ],
     "packages-dev": [

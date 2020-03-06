@@ -3,6 +3,7 @@
 .DS_*
 
 # Application
+web/.well-known/security.txt
 web/app/debug.log
 web/app/plugins/*
 !web/app/plugins/.gitkeep
