@@ -58,7 +58,7 @@
     "wpackagist-plugin/classic-editor": "*",
     "ministryofjustice/wp-user-roles": "*",
     "ministryofjustice/wp-moj-components": "*",
-    "roots/soil": "*"
+    "roots/soil": "^3.7"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^2.5.1"
