@@ -54,12 +54,11 @@
     "acf/advanced-custom-fields-pro": "*",
     "wpackagist-plugin/breadcrumb-navxt": "*",
     "wpackagist-plugin/simple-image-widget": "*",
-    "wpackagist-plugin/fast-user-switching": "*",
     "wpackagist-plugin/tinymce-advanced": "*",
     "wpackagist-plugin/classic-editor": "*",
     "ministryofjustice/wp-user-roles": "*",
     "ministryofjustice/wp-moj-components": "*",
-    "roots/soil": "^3.7"
+    "roots/soil": "*"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^2.5.1"
