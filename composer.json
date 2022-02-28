@@ -48,7 +48,7 @@
     "koodimonni-language/core-en_gb": "*",
     "oscarotero/env": "^1.0",
     "roots/wp-password-bcrypt": "*",
-    "ministryofjustice/wp-rewrite-media-to-s3": "^0.1.0",
+    "ministryofjustice/wp-rewrite-media-to-s3": "*",
     "wpackagist-plugin/wp-analytify":"*",
     "wpackagist-plugin/analytify-analytics-dashboard-widget":"*",
     "acf/advanced-custom-fields-pro": "*",
