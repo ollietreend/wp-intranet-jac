@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fac42c2909af6c17c1758dcda328ce5f",
+    "content-hash": "b59bbce861b97b892d98bf0cae66c38c",
     "packages": [
         {
             "name": "acf/advanced-custom-fields-pro",
@@ -1784,24 +1784,6 @@
             "time": "2021-12-12T22:59:22+00:00"
         },
         {
-            "name": "wpackagist-plugin/analytify-analytics-dashboard-widget",
-            "version": "2.0.6",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/analytify-analytics-dashboard-widget/",
-                "reference": "tags/2.0.6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/analytify-analytics-dashboard-widget.2.0.6.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/analytify-analytics-dashboard-widget/"
-        },
-        {
             "name": "wpackagist-plugin/breadcrumb-navxt",
             "version": "7.2.0",
             "source": {
@@ -1872,24 +1854,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/tinymce-advanced/"
-        },
-        {
-            "name": "wpackagist-plugin/wp-analytify",
-            "version": "4.2.2",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/wp-analytify/",
-                "reference": "tags/4.2.2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wp-analytify.4.2.2.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/wp-analytify/"
         }
     ],
     "packages-dev": [
