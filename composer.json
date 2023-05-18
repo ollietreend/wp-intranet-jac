@@ -54,8 +54,6 @@
     "oscarotero/env": "^1.0",
     "roots/wp-password-bcrypt": "*",
     "ministryofjustice/wp-rewrite-media-to-s3": "*",
-    "wpackagist-plugin/wp-analytify":"4.2.2",
-    "wpackagist-plugin/analytify-analytics-dashboard-widget":"2.0.6",
     "acf/advanced-custom-fields-pro": "*",
     "wpackagist-plugin/breadcrumb-navxt": "*",
     "wpackagist-plugin/simple-image-widget": "*",
