@@ -1,4 +1,8 @@
 <?php
+
+header("Location: https://intranet.justice.gov.uk/?agency=jac", true, 301);
+exit();
+
 /**
  * Sage includes
  *
