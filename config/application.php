@@ -1,5 +1,8 @@
 <?php
 
+header("Location: https://intranet.justice.gov.uk/?agency=jac", true, 301);
+exit();
+
 /** @var string Directory containing all of the site's files */
 $root_dir = dirname(__DIR__);
 
