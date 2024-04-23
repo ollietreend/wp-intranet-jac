@@ -1,8 +1,4 @@
 <?php
-
-header("Location: https://intranet.justice.gov.uk/?agency=jac", true, 301);
-exit();
-
 /**
  * Sage includes
  *
@@ -13,7 +9,7 @@ exit();
  *
  * @link https://github.com/roots/sage/pull/1042
  */
-/*$sage_includes = [
+$sage_includes = [
   'lib/utils.php',                 // Utility functions
   'lib/init.php',                  // Initial theme setup and constants
   'lib/wrapper.php',               // Theme wrapper class
@@ -33,4 +29,4 @@ foreach ($sage_includes as $file) {
 
   require_once $filepath;
 }
-unset($file, $filepath);*/
+unset($file, $filepath);
